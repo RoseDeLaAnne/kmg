@@ -1,0 +1,48 @@
+.items
+  &.items_index
+    display: flex
+    column-gap: 20px
+
+    overflow-x: scroll
+
+    .items__item-img
+      width: 224px
+
+  &.items_catalog
+    display: flex
+    flex-direction: column
+    row-gap: 30px
+
+    @media (min-width: 361px)
+      display: grid
+      grid-template-columns: 1fr 1fr 1fr 1fr
+      gap: 40px
+
+    .items__item-img
+      width: 100%
+
+.items__item-img
+  height: 200px
+
+  border-radius: 12px
+
+.items__item-vendor-code
+  font-size: 12px
+  font-weight: 500
+  line-height: 16px
+
+  color: #B3C8DB
+
+.items__item-name
+  line-height: 21px
+
+  color: #6D98BA
+
+.items__item-price
+  margin-top: 10px
+  margin-bottom: 16px
+
+  font-size: 18px
+  line-height: 25px
+
+  color: #09295A

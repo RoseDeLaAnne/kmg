@@ -1,0 +1,144 @@
+.modal
+  display: none
+  position: fixed
+  z-index: 1
+  left: 50%
+  top: 50%
+  transform: translate(-50%, -50%)
+  width: calc( 100% - 40px )
+  overflow: auto
+  background-color: #ffffff
+
+  border-radius: 18px
+
+  @media (min-width: 361px)
+    width: auto
+
+  &.modal_thanks
+    .modal-content
+      padding: 20px 20px 30px 20px
+
+      @media (min-width: 361px)
+        padding: 50px 50px 60px 50px
+
+        display: flex
+        flex-direction: column
+        align-items: center
+
+    .modal-content__icon
+      margin-bottom: 20px
+
+      width: 100px
+      height: 100px
+
+      @media (min-width: 361px)
+        margin-bottom: 36px
+
+        width: 120px
+        height: 120px
+
+    .modal-content__title
+      margin-bottom: 6px
+
+      @media (min-width: 361px)
+        margin-bottom: 8px
+
+        color: #09295A
+
+    .modal-content__text
+      margin-bottom: 20px
+
+      @media (min-width: 361px)
+        margin-bottom: 36px
+
+        color: #6D98BA
+
+  &.modal_leave-a-request
+    .modal-content
+      display: block
+      
+      @media (min-width: 361px)
+        display: flex
+
+    .modal-content__left
+      padding: 24px 24px 30px
+
+      display: none
+
+      @media (min-width: 361px)
+        display: block
+
+    .modal-content__item-img
+      width: 224px
+      height: 200px
+      border-radius: 12px
+
+    .modal-content__item-vendor-code
+      font-size: 12px
+      font-weight: 500
+      line-height: 16px
+
+      color: #B3C8DB
+
+    .modal-content__item-name
+      margin-bottom: 10px
+
+      line-height: 21px
+
+      color: #6D98BA
+
+    .modal-content__item-price
+      font-size: 18px
+      line-height: 25px
+
+      color: #09295A
+
+    .modal-content__right
+      padding: 20px 20px 30px 20px
+
+      display: flex
+      flex-direction: column
+
+      background-color: #F3F8FF
+
+      @media (min-width: 361px)
+        padding: 30px 40px 30px 24px
+
+    .modal-content__title
+      margin-bottom: 6px
+
+      @media (min-width: 361px)
+        margin-bottom: 8px
+
+        color: #09295A
+
+    .modal-content__text
+      margin-bottom: 20px
+
+      @media (min-width: 361px)
+        margin-bottom: 30px
+
+      color: #6D98BA
+
+    .modal-content__form
+      display: flex
+      flex-direction: column
+
+    .modal-content__input
+      margin-bottom: 12px
+      padding: 8px 12px 10px 12px
+
+      width: 100%
+
+      background-color: #FFFFFF
+
+      border-radius: 8px
+
+      @media (min-width: 361px)
+        width: 320px
+
+      &:last-of-type
+        margin-bottom: 0
+
+    .modal-content__btn
+      margin-top: 20px

@@ -1,0 +1,151 @@
+// USER VARIABLES SECTION
+
+// $accent: orange // Accent Color
+$fontsize: 16px // Body Font Size
+$textcolor: #000000 // Text Color
+// $lineheight: 1.65 // Document Line Height
+$userfont: ibm-plex-sans, sans-serif // User Font Family
+// $systemfont: -apple-system, BlinkMacSystemFont, Arial, sans-serif // System Font Family
+
+// Bootstrap compatible gutter variable => $gutter
+// $grid-gutter-width: 40px
+// $gutter: $grid-gutter-width
+// $grid-columns: 10
+
+// .col-2
+// 	padding-left: 0 !important
+
+// .col-8
+// 	padding-right: 0 !important
+
+// IMPORT SECTION
+
+// @import 'node_modules/bootstrap/scss/bootstrap-reboot.scss' // Bootstrap Reboot collection
+// @import 'node_modules/bootstrap/scss/mixins/_breakpoints.scss' // Bootstrap Breakpoints mixin
+// @import 'node_modules/bootstrap/scss/bootstrap-grid.scss' // Optional Bootstrap Grid
+// @import 'node_modules/bootstrap/scss/_utilities.scss' // Optional Bootstrap Utilites
+
+// FONTS LOAD SECTION
+
+@mixin font($fname, $fstyle, $fweight, $furl)
+	@font-face
+		font-family: $fname
+		font-style: $fstyle
+		font-weight: $fweight
+		src: url($furl) format('woff2')
+
+@include font('ibm-plex-sans', normal, 400, '../fonts/ibm-plex-sans-regular.woff2')
+@include font('ibm-plex-sans', normal, 500, '../fonts/ibm-plex-sans-medium.woff2')
+@include font('manrope', normal, 400, '../fonts/manrope-regular.woff2')
+@include font('manrope', normal, 500, '../fonts/manrope-medium.woff2')
+@include font('manrope', normal, 700, '../fonts/manrope-bold.woff2')
+// @include font('roboto-oh5', normal, 700, '../fonts/roboto-bold-webfont.woff2')
+// @include font('roboto-oh5', italic, 700, '../fonts/roboto-bolditalic-webfont.woff2')
+
+// GENERAL CSS SETTINGS
+
+// ::placeholder
+// 	color: #666
+
+// ::selection
+// 	background-color: $accent
+// 	color: #fff
+
+// input, textarea
+// 	outline: none
+// 	&:focus:required:invalid
+// 		border-color: red
+// 	&:required:valid
+// 		border-color: green
+
+// body
+// 	font-family: $userfont
+// 	font-size: $fontsize
+// 	// line-height: $lineheight
+// 	color: $textcolor
+// 	min-width: 280px
+// 	position: relative
+// 	overflow-x: hidden
+
+*,
+*:before,
+*:after
+	box-sizing: border-box
+
+html
+	scroll-behavior: smooth
+
+body
+	margin: 0
+
+	position: relative
+
+	min-width: 280px
+
+	font-family: $userfont
+	font-size: $fontsize
+	// font-weight: var(--bodyFontWeight)
+
+	// text-transform: var(--bodyTextTransform)
+
+	// letter-spacing: var(--bodyLetterSpacing)
+
+	color: $textcolor
+	// background-color: var(--bodyBackgroundColor)
+
+	overflow-x: hidden
+
+svg,
+img,
+video
+	display: block
+
+svg
+	pointer-events: none
+
+img,
+video
+	object-fit: cover
+
+a
+	display: inline-block
+
+	text-decoration: none
+
+	color: inherit
+
+	outline: none
+
+input,
+button
+	padding: 0
+
+	font-family: inherit
+	font-size: inherit
+
+	text-transform: inherit
+
+	letter-spacing: inherit
+
+	background: none
+
+	border: none
+	outline: none
+
+button
+	cursor: pointer
+
+ul,
+ol
+	padding: 0
+	margin: 0
+	list-style: none
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p
+	margin: 0

@@ -1,0 +1,16 @@
+.catalog-catalog
+  display: flex
+  flex-direction: column
+
+  @media (min-width: 361px)
+    display: grid
+    grid-template-columns: repeat(10, 1fr)
+    column-gap: 40px
+
+.catalog-catalog__left
+  @media (min-width: 361px)
+    grid-column: span 2
+
+.catalog-catalog__right
+  @media (min-width: 361px)
+    grid-column: span 8
