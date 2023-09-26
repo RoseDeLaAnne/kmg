@@ -1,5 +1,7 @@
 
-<!DOCTYPE html>
+
+<div class="page">
+  <!DOCTYPE html>
 <html>
   <head>
     <meta charset="utf-8" />
@@ -120,15 +122,148 @@
   </body>
 </html>
 
+  <main id="main" class="main container">
+    <div class="breadcrumbs">
+      <a href="index.html" class="breadcrumbs__item">Главная</a> >
+      <a href="#" class="breadcrumbs__item">Каталог</a>
+    </div>
+    <h1 class="page__title">Каталог <br class="mobile" />буровых установок</h1>
+    <button class="show-btn show-btn mobile show-btn_catalog">
+      <span class="show-btn__name">Фильтр</span>
+      <svg
+        width="20"
+        height="20"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M13.825 12.85 10 9.025 6.175 12.85 5 11.667l5-5 5 5-1.175 1.183Z"
+          fill="#6D98BA"
+        />
+      </svg>
+    </button>
+    <section class="catalog-catalog">
+      <div class="catalog-catalog__left">
+        <form class="filter filter_catalog">
+          <div class="filter__inner">
+            <h3 class="filter__title">Фильтр</h3>
+            <div class="filter__box">
+              <div class="filter__item">
+                <div class="filter__item-title">Диаметр бурения, мм</div>
+                <!-- range picker -->
+                <div class="filter__item-box">
+                  <input
+                    type="text"
+                    placeholder="76"
+                    class="filter__item-input"
+                  />
+                  <input
+                    type="text"
+                    placeholder="253"
+                    class="filter__item-input"
+                  />
+                </div>
+              </div>
+              <div class="filter__item">
+                <div class="filter__item-title">Диаметр бурения, мм</div>
+                <!-- range picker -->
+                <div class="filter__item-box">
+                  <input
+                    type="text"
+                    placeholder="76"
+                    class="filter__item-input"
+                  />
+                  <input
+                    type="text"
+                    placeholder="253"
+                    class="filter__item-input"
+                  />
+                </div>
+              </div>
+              <button class="btn btn_submit filter__btn mobile">
+                Применить
+              </button>
+            </div>
+          </div>
 
-<div style="max-width: 700px; margin: auto">
+          <button class="btn btn_submit filter__btn desktop">Применить</button>
+        </form>
+      </div>
+      <div class="catalog-catalog__right">
+        <div class="items items_catalog">
+          <div class="items__item">
+            <img src="images/dist/image.jpg" alt="" class="items__item-img" />
+            <p class="items__item-vendor-code">Артикул: 00000</p>
+            <p class="items__item-name">
+              Буровой станок TX55S для бурения скважин
+            </p>
+            <p class="items__item-price">от 1 300 000₽</p>
+            <button class="btn btn_show">Заказать</button>
+          </div>
+          <div class="items__item">
+            <img src="images/dist/image.jpg" alt="" class="items__item-img" />
+            <p class="items__item-vendor-code">Артикул: 00000</p>
+            <p class="items__item-name">
+              Буровой станок TX55S для бурения скважин
+            </p>
+            <p class="items__item-price">от 1 300 000₽</p>
+            <button class="btn btn_show">Заказать</button>
+          </div>
+          <div class="items__item">
+            <img src="images/dist/image.jpg" alt="" class="items__item-img" />
+            <p class="items__item-vendor-code">Артикул: 00000</p>
+            <p class="items__item-name">
+              Буровой станок TX55S для бурения скважин
+            </p>
+            <p class="items__item-price">от 1 300 000₽</p>
+            <button class="btn btn_show">Заказать</button>
+          </div>
+          <div class="items__item">
+            <img src="images/dist/image.jpg" alt="" class="items__item-img" />
+            <p class="items__item-vendor-code">Артикул: 00000</p>
+            <p class="items__item-name">
+              Буровой станок TX55S для бурения скважин
+            </p>
+            <p class="items__item-price">от 1 300 000₽</p>
+            <button class="btn btn_show">Заказать</button>
+          </div>
+          <div class="items__item">
+            <img src="images/dist/image.jpg" alt="" class="items__item-img" />
+            <p class="items__item-vendor-code">Артикул: 00000</p>
+            <p class="items__item-name">
+              Буровой станок TX55S для бурения скважин
+            </p>
+            <p class="items__item-price">от 1 300 000₽</p>
+            <button class="btn btn_show">Заказать</button>
+          </div>
+        </div>
 
-  <img src="images/dist/preview.jpg" alt="Start HTML5 Template" style="width: 100%"><br><br>
-  <p>order</p>
-
-</div>
-
-	<footer id="footer" class="footer">
+        <ul class="items-categories items-categories_catalog desktop">
+          <li class="items-categories__item">
+            <a href="#" class="items-categories__item-link">Самоходные</a>
+          </li>
+          <li class="items-categories__item">
+            <a href="#" class="items-categories__item-link">Мобильные</a>
+          </li>
+          <li class="items-categories__item">
+            <a href="#" class="items-categories__item-link">Передвижные</a>
+          </li>
+          <li class="items-categories__item">
+            <a href="#" class="items-categories__item-link">Для скважин</a>
+          </li>
+          <li class="items-categories__item">
+            <a href="#" class="items-categories__item-link">Для бурения</a>
+          </li>
+          <li class="items-categories__item">
+            <a href="#" class="items-categories__item-link"
+              >На гусеничном ходу</a
+            >
+          </li>
+        </ul>
+      </div>
+    </section>
+  </main>
+  	<footer id="footer" class="footer">
 		<div class="footer__top container">
 			<div class="footer__top-box-1">
 				<img src="images/dist/logo.svg" alt="" class="logo logo_footer">
@@ -208,3 +343,4 @@
 
 </body>
 </html>
+</div>
