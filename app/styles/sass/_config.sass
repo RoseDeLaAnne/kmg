@@ -67,10 +67,24 @@ $userfont: ibm-plex-sans, sans-serif // User Font Family
 // 	position: relative
 // 	overflow-x: hidden
 
+::-webkit-scrollbar
+	display: none
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button
+	-webkit-appearance: none
+	margin: 0
+
+input[type=number]
+	-moz-appearance: textfield
+
 *,
 *:before,
 *:after
 	box-sizing: border-box
+
+	-ms-overflow-style: none
+	scrollbar-width: none
 
 html
 	scroll-behavior: smooth

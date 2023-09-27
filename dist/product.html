@@ -26,7 +26,7 @@
       <div class="header__top">
         <div class="header__top-inner">
           <div class="city">
-            <span class="city__name">г. Кемерево</span>
+            <span class="city__name">г. Кемерово</span>
             <svg
               width="20"
               height="20"
@@ -121,7 +121,52 @@
     </header>
   </body>
 </html>
-
+  
+  <div class="menu">
+    <div class="menu-content">
+      <ul class="menu-content__ul">
+        <li class="menu-content__ul-item">
+          <a href="#" class="menu-content__ul-item-link">
+            Каталог
+          </a>
+        </li>
+        <li class="menu-content__ul-item">
+          <a href="#" class="menu-content__ul-item-link">
+            Запчасти
+          </a>
+        </li>
+        <li class="menu-content__ul-item">
+          <a href="#" class="menu-content__ul-item-link">
+            Сервис
+          </a>
+        </li>
+        <li class="menu-content__ul-item">
+          <a href="#" class="menu-content__ul-item-link">
+            Новости
+          </a>
+        </li>
+        <li class="menu-content__ul-item">
+          <a href="#" class="menu-content__ul-item-link">
+            Контакты
+          </a>
+        </li>
+      </ul>
+      <button class="show-btn mobile show-btn__menu">
+        <span class="show-btn__name">Заказать звонок</span>
+        <svg
+          width="16"
+          height="16"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="m3.333 4.273.94-.94 7.06 7.06V6h1.334v6.667H6v-1.334h4.393l-7.06-7.06Z"
+            fill="#6D98BA"
+          />
+        </svg>
+      </button>
+    </div>
+  </div>
   <div class="modal modal_thanks">
     <div class="modal-content">
       <svg
@@ -140,7 +185,6 @@
       <button class="btn btn_show">Отлично</button>
     </div>
   </div>
-
   <div class="modal modal_leave-a-request">
     <div class="modal-content">
       <div class="modal-content__left">
@@ -183,6 +227,11 @@
     </div>
   </div>
   <main id="main" class="main container">
+    <div class="breadcrumbs mobile">
+      <a href="index.html" class="breadcrumbs__item">Главная</a> >
+      <a href="#" class="breadcrumbs__item">Каталог</a> >
+      <a href="#" class="breadcrumbs__item">Буровой станок TX55S</a>
+    </div>
     <div class="before-breadcrumbs desktop">
       <div class="breadcrumbs">
         <a href="index.html" class="breadcrumbs__item">Главная</a> >
@@ -190,16 +239,27 @@
       </div>
       <div class="before-breadcrumbs__vendor-code">Артикул: 00000</div>
     </div>
-
     <div class="before-product-info desktop">
       <h2 class="before-product-info__title">Буровой станок TX55S</h2>
       <h3 class="before-product-info__price">от 1 300 000₽</h3>
     </div>
-
     <section class="product-info section">
       <div class="product-info__left">
         <div class="product-info__left-box-1">
           <div class="product-info-preview desktop">
+            <button>
+              <svg
+                width="32"
+                height="32"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M9.88 20.547 16 14.44l6.12 6.107 1.88-1.88-8-8-8 8 1.88 1.88Z"
+                  fill="#B3C8DB"
+                />
+              </svg>
+            </button>
             <div class="product-info-preview__box">
               <img
                 src="images/dist/image.jpg"
@@ -221,7 +281,25 @@
                 alt=""
                 class="product-info-preview__item-img"
               />
+              <img
+                src="images/dist/image.jpg"
+                alt=""
+                class="product-info-preview__item-img"
+              />
             </div>
+            <button>
+              <svg
+                width="32"
+                height="32"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M22.12 11.453 16 17.56l-6.12-6.107L8 13.333l8 8 8-8-1.88-1.88Z"
+                  fill="#09295A"
+                />
+              </svg>
+            </button>
           </div>
           <div class="product-info-big-preview">
             <img
@@ -231,7 +309,11 @@
             />
           </div>
         </div>
-        <button class="btn btn_submit product-info__btn">Заказать</button>
+        <div class="after-product-info mobile">
+          <h2 class="after-product-info__title">Буровой станок TX55S</h2>
+          <h3 class="after-product-info__price">от 1 300 000₽</h3>
+        </div>
+        <button class="btn btn_submit product-info__btn">Заказать</button>        
         <div class="product-info__left-box-2">
           <a href="#" class="show-btn">
             <span class="show-btn__name">Распечатать страницу</span>
@@ -296,13 +378,88 @@
         </div>
         <div class="product-info__box-2">
           <h3 class="product-info__title">Характеристики</h3>
+
+          <div class="product-info-characteristics-items">
+            <div class="product-info-characteristics-items__item" id="drilling-parameters">
+              <button
+                class="show-btn"
+                onclick="showCharacteristics('drilling-parameters')"
+              >
+                <span class="show-btn__name">Параметры бурения</span>
+                <svg
+                  width="20"
+                  height="20"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="show-btn__icon"
+                  id="drilling-parameters__icon"
+                >
+                  <path
+                    d="M6.175 7.15 10 10.975l3.825-3.825L15 8.333l-5 5-5-5L6.175 7.15Z"
+                    fill="#6D98BA"
+                  />
+                </svg>
+              </button>
+              <div
+                class="product-info-characteristics-items__item-content"
+                id="drilling-parameters__content"
+              >
+                <div
+                  class="product-info-characteristics-items__item-content-name"
+                >
+                  Диаметр бурения, мм
+                </div>
+                <div
+                  class="product-info-characteristics-items__item-content-value"
+                >
+                  102-152
+                </div>
+              </div>
+            </div>
+            <div class="product-info-characteristics-items__item" id="ds-parameters">
+              <button
+                class="show-btn"
+                onclick="showCharacteristics('ds-parameters')"
+              >
+                <span class="show-btn__name">Параметры ДС</span>
+                <svg
+                  width="20"
+                  height="20"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="show-btn__icon"
+                  id="ds-parameters__icon"
+                >
+                  <path
+                    d="M6.175 7.15 10 10.975l3.825-3.825L15 8.333l-5 5-5-5L6.175 7.15Z"
+                    fill="#6D98BA"
+                  />
+                </svg>
+              </button>
+              <div
+                class="product-info-characteristics-items__item-content"
+                id="ds-parameters__content"
+              >
+                <div
+                  class="product-info-characteristics-items__item-content-name"
+                >
+                  Модель
+                </div>
+                <div
+                  class="product-info-characteristics-items__item-content-value"
+                >
+                  QSL8.9-C360
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </section>
 
     <section class="support-you-can-count-on section">
       <h2 class="support-you-can-count-on__title h2-title">
-        Поддержка, на которую Вы можете рассчитывать
+        Поддержка,<br class="mobile" /> на которую Вы можете рассчитывать
       </h2>
 
       <div class="support-you-can-count-on-items">
@@ -398,7 +555,7 @@
         <h2 class="product-recommended-spare-parts__title">
           Рекомендуемые запчасти
         </h2>
-        <button class="show-btn desktop">
+        <a href="#" class="show-btn desktop">
           <span class="show-btn__name">Узнать больше</span>
           <svg
             width="16"
@@ -425,11 +582,26 @@
           <button class="btn btn_show">Заказать</button>
         </div>
       </div>
+      <a href="#" class="show-btn mobile" style="margin-top: 20px;">
+        <span class="show-btn__name">Узнать больше</span>
+        <svg
+          width="16"
+          height="16"
+          viewBox="0 0 16 16"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M3.3335 4.27333L4.2735 3.33333L11.3335 10.3933V6H12.6668V12.6667H6.00016V11.3333H10.3935L3.3335 4.27333Z"
+            fill="#6D98BA"
+          />
+        </svg>
+      </a>
     </section>
     <section class="product-popular">
       <div class="product-popular__box h2-title">
         <h2 class="product-popular__title">Рекомендуемые запчасти</h2>
-        <button class="show-btn desktop">
+        <a href="#" class="show-btn desktop">
           <span class="show-btn__name">Узнать больше</span>
           <svg
             width="16"
@@ -456,6 +628,21 @@
           <button class="btn btn_show">Заказать</button>
         </div>
       </div>
+      <a href="#" class="show-btn mobile" style="margin-top: 20px;">
+        <span class="show-btn__name">Узнать больше</span>
+        <svg
+          width="16"
+          height="16"
+          viewBox="0 0 16 16"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M3.3335 4.27333L4.2735 3.33333L11.3335 10.3933V6H12.6668V12.6667H6.00016V11.3333H10.3935L3.3335 4.27333Z"
+            fill="#6D98BA"
+          />
+        </svg>
+      </button>
     </section>
   </main>
   	<footer id="footer" class="footer">
@@ -535,7 +722,20 @@
 	</footer>
 	
 	<script src="js/app.min.js"></script>
-
 </body>
 </html>
+
+  <script>
+    const showCharacteristics = (characteristics) => {
+      document
+        .getElementById(`${characteristics}`)
+        .classList.toggle("mb-30px");
+      document
+        .getElementById(`${characteristics}__icon`)
+        .classList.toggle("rotate");
+      document
+        .getElementById(`${characteristics}__content`)
+        .classList.toggle("show");
+    };
+  </script>
 </div>

@@ -11,25 +11,48 @@
 
   border-radius: 8px
 
+  transition: background-color .5s ease-in-out
+
+  &.disabled
+    background-color: #6D98BA
+
   &.btn_submit
     color: #ffffff
     background-color: #FF8915
+
+    &:hover
+      background-color: #BC6916
 
   &.btn_show
     color: #ffffff
     background-color: #09295A
 
+    &:hover
+      background-color: #6D98BA
+
 .show-btn
   display: flex
   align-items: center
 
+  &:hover
+    .show-btn__name
+      color: #09295A
+
+  &.disabled
+    .show-btn__name
+      color: #BEBEBE
+
   &.show-btn_catalog
     margin-bottom: 10px
 
-.show-btn__name
-  font-size: 16px
-  font-weight: 500
-  line-height: 22px
-  letter-spacing: -0.01em
+  .show-btn__name
+    margin-right: 3px
 
-  color: #6D98BA
+    font-size: 16px
+    font-weight: 500
+    line-height: 22px
+    letter-spacing: -0.01em
+
+    color: #6D98BA
+
+    transition: color .5s ease-in-out
