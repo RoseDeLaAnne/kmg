@@ -8,13 +8,14 @@
       <a href="#" class="breadcrumbs__item">Каталог</a>
     </div>
     <h1 class="page__title">Каталог <br class="mobile" />буровых установок</h1>
-    <button class="show-btn show-btn mobile show-btn_catalog">
+    <button class="show-btn mobile show-btn_catalog" onclick="showFilter()">
       <span class="show-btn__name">Фильтр</span>
       <svg
         width="20"
         height="20"
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
+        id="show-btn__icon"
       >
         <path
           d="M13.825 12.85 10 9.025 6.175 12.85 5 11.667l5-5 5 5-1.175 1.183Z"
@@ -31,20 +32,40 @@
               <div class="filter__item">
                 <div class="filter__item-title">Диаметр бурения, мм</div>
                 <div class="sliders_control">
-                  <input id="fromSlider" type="range" value="0" min="0" max="1000"/>
-                  <input id="toSlider" type="range" value="1000" min="0" max="1000"/>
-               </div>
+                  <input
+                    id="fromSlider"
+                    type="range"
+                    value="0"
+                    min="0"
+                    max="1000"
+                  />
+                  <input
+                    id="toSlider"
+                    type="range"
+                    value="1000"
+                    min="0"
+                    max="1000"
+                  />
+                </div>
                 <div class="filter__item-box">
                   <input
                     placeholder="0"
                     class="filter__item-input form_control_container__time__input"
-                    type="number" id="fromInput" value="0" min="0" max="1000"
+                    type="number"
+                    id="fromInput"
+                    value="0"
+                    min="0"
+                    max="1000"
                   />
                   <div class="filter__item-decor"></div>
                   <input
                     placeholder="1000"
                     class="filter__item-input form_control_container__time__input"
-                    type="number" id="toInput" value="1000" min="0" max="1000"
+                    type="number"
+                    id="toInput"
+                    value="1000"
+                    min="0"
+                    max="1000"
                   />
                 </div>
               </div>
@@ -132,4 +153,11 @@
     </section>
   </main>
   <!--#include virtual="/parts/footer.html" -->
+
+  <script>
+    const showFilter = () => {
+      document.querySelector(".filter").classList.toggle("hide");
+      document.getElementById(`show-btn__icon`).classList.toggle("rotate");
+    };
+  </script>
 </div>
