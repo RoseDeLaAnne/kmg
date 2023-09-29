@@ -309,6 +309,47 @@
   <script src="../js/rangeSlider.js"></script>
 </html>
 
+  <div class="modal modal_leave-a-request">
+    <div class="modal-content">
+      <div class="modal-content__left">
+        <img
+          src="images/dist/image.jpg"
+          alt=""
+          class="modal-content__item-img"
+        />
+        <p class="modal-content__item-vendor-code" id="leave-a-request__vendor-code">Артикул: 00000</p>
+        <p class="modal-content__item-name" id="leave-a-request__name">
+          Буровой станок TX55S для<br />бурения скважин
+        </p>
+        <p class="modal-content__item-price" id="leave-a-request__price">от 1 300 000₽</p>
+      </div>
+      <div class="modal-content__right">
+        <h2 class="modal-content__title">
+          Оставьте<br class="mobile" />
+          заявку
+        </h2>
+        <p class="modal-content__text">
+          Заполните форму<br class="mobile" />
+          и мы перезвоним Вам
+        </p>
+        <form class="modal-content__form">
+          <input
+            type="text"
+            class="modal-content__input"
+            placeholder="Имя"
+            id="name"
+          />
+          <input
+            type="text"
+            class="modal-content__input"
+            placeholder="+7"
+            id="number"
+          />
+          <button class="btn btn_show modal-content__btn">Отправить</button>
+        </form>
+      </div>
+    </div>
+  </div>
   <main id="main" class="main container main_padding">
     <div class="breadcrumbs">
       <a href="index.html" class="breadcrumbs__item">Главная</a> >
@@ -394,7 +435,7 @@
               Буровой станок TX55S для бурения скважин
             </p>
             <p class="items__item-price">от 1 300 000₽</p>
-            <button class="btn btn_show">Заказать</button>
+            <button class="btn btn_show" onclick="order('12345', 'Буровой станок TX55S для<br /> бурения скважин', '1 300 000')">Заказать</button>
           </div>
           <div class="items__item">
             <img src="images/dist/image.jpg" alt="" class="items__item-img" />
@@ -403,7 +444,7 @@
               Буровой станок TX55S для бурения скважин
             </p>
             <p class="items__item-price">от 1 300 000₽</p>
-            <button class="btn btn_show">Заказать</button>
+            <button class="btn btn_show" onclick="order('14123', 'Буровой станок TX55S для<br /> бурения скважин', '1 500 000')">Заказать</button>
           </div>
           <div class="items__item">
             <img src="images/dist/image.jpg" alt="" class="items__item-img" />
@@ -412,7 +453,7 @@
               Буровой станок TX55S для бурения скважин
             </p>
             <p class="items__item-price">от 1 300 000₽</p>
-            <button class="btn btn_show">Заказать</button>
+            <button class="btn btn_show" onclick="order('13412', 'Буровой станок TX55S для<br /> бурения скважин', '1 200 000')">Заказать</button>
           </div>
           <div class="items__item">
             <img src="images/dist/image.jpg" alt="" class="items__item-img" />
@@ -421,7 +462,7 @@
               Буровой станок TX55S для бурения скважин
             </p>
             <p class="items__item-price">от 1 300 000₽</p>
-            <button class="btn btn_show">Заказать</button>
+            <button class="btn btn_show" onclick="order('13534', 'Буровой станок TX55S для<br /> бурения скважин', '1 800 000')">Заказать</button>
           </div>
           <div class="items__item">
             <img src="images/dist/image.jpg" alt="" class="items__item-img" />
@@ -568,6 +609,20 @@
 </html>
 
   <script>
+    const order = (vendorCode, name, price) => {
+      const modalLeaveARequest = document.querySelector('.modal_leave-a-request');
+      const vendorCodeE = document.getElementById('leave-a-request__vendor-code')
+      const nameE = document.getElementById('leave-a-request__name')
+      const priceE = document.getElementById('leave-a-request__price')
+
+      modalLeaveARequest.classList.add('block')
+      document.querySelector(".modal-background").classList.add("show");
+      document.body.style.overflow = "hidden";
+      vendorCodeE.innerHTML = `Ариткул: ${vendorCode}`;
+      nameE.innerHTML = `${name}`;
+      priceE.innerHTML = `от ${price}₽`;
+    }
+
     const showFilter = () => {
       document.querySelector(".filter").classList.toggle("hide");
       document.getElementById(`show-btn__icon`).classList.toggle("rotate");
