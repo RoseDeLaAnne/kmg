@@ -1,17 +1,36 @@
 .index-interested-in-our-products
-  padding: 40px 0
+  padding: 40px 20px
 
   background-color: #09295A
 
+  @media (min-width: 1281px)
+    padding: 40px 0
+
 .index-interested-in-our-products__box
   display: flex
-  column-gap: 80px
+  flex-direction: column
+  row-gap: 20px
+
+  @media (min-width: 1281px)
+    flex-direction: row
+    column-gap: 80px
 
   .btn
     width: 320px
 
+  .show-btn__name
+    color: #fff
+
+  .show-btn
+    &:hover
+      .show-btn__name
+        color: #fff
+
 .index-interested-in-our-products__title
-  margin-bottom: 40px
+  margin-bottom: 30px
+
+  @media (min-width: 1281px)
+    margin-bottom: 40px
 
   color: #ffffff
 

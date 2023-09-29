@@ -7,6 +7,14 @@ document.addEventListener("DOMContentLoaded", () => {
   const modalThanks = document.querySelector(".modal_thanks");
   const openMenu = document.getElementById('open-menu')
   const menu = document.querySelector('.menu')
+  const imSearchingInput = document.getElementById('im-searching')
+
+  imSearchingInput.addEventListener('focus', function () {
+    document.getElementById('pop-up_calculate-the-cost-desktop').classList.add('block')
+  });
+  imSearchingInput.addEventListener('blur', function () {
+    document.getElementById('pop-up_calculate-the-cost-desktop').classList.remove('block')
+  });
 
   // Define the maximum character limit
   const maxChars = 200;

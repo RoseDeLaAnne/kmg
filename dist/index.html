@@ -136,9 +136,9 @@
             </ul>
           </nav>
           <div class="c-input c-input_header desktop">
-            <div class="pop-up pop-up_calculate-the-cost">
+            <div class="pop-up pop-up_calculate-the-cost desktop" id="pop-up_calculate-the-cost-desktop">
               <h2 class="pop-up__title h2-title">
-                Рассчитайте стоимость
+                <span>Рассчитайте стоимость</span>
                 <svg viewBox="0 0 16 16" class="pop-up__icon" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="m3.333 4.273.94-.94 7.06 7.06V6h1.334v6.667H6v-1.334h4.393l-7.06-7.06Z" fill="#09295A"/></svg>
               </h2>
               <form class="filter">
@@ -148,18 +148,122 @@
                       <div class="filter__item-title">Диаметр бурения, мм</div>
                       <div class="sliders_control">
                         <input
-                          id="fromSlider"
+                          id="fromSliderDrillingdiameter"
                           type="range"
                           value="0"
                           min="0"
                           max="1000"
                         />
                         <input
-                          id="toSlider"
+                          id="toSliderDrillingdiameter"
                           type="range"
                           value="1000"
                           min="0"
                           max="1000"
+                        />
+                      </div>
+                      <div class="filter__item-box">
+                        <input
+                          placeholder="0"
+                          class="filter__item-input form_control_container__time__input"
+                          type="number"
+                          id="fromSliderDrillingdiameter"
+                          value="0"
+                          min="0"
+                          max="1000"
+                          style="background-color: #F3F8FF"
+                        />
+                        <input
+                          placeholder="1000"
+                          class="filter__item-input form_control_container__time__input"
+                          type="number"
+                          id="toSliderDrillingdiameter"
+                          value="1000"
+                          min="0"
+                          max="1000"
+                          style="background-color: #F3F8FF;"
+                        />
+                      </div>
+                    </div>
+                    <div class="filter__item">
+                      <div class="filter__item-title">Диаметр, мм</div>
+                      <div class="sliders_control">
+                        <input
+                          id="fromSliderDrillingdiameter"
+                          type="range"
+                          value="0"
+                          min="0"
+                          max="1000"
+                        />
+                        <input
+                          id="toSliderDrillingdiameter"
+                          type="range"
+                          value="1000"
+                          min="0"
+                          max="1000"
+                        />
+                      </div>
+                      <div class="filter__item-box">
+                        <input
+                          placeholder="0"
+                          class="filter__item-input form_control_container__time__input"
+                          type="number"
+                          id="fromSliderDrillingdiameter"
+                          value="0"
+                          min="0"
+                          max="1000"
+                          style="background-color: #F3F8FF"
+                        />
+                        <input
+                          placeholder="1000"
+                          class="filter__item-input form_control_container__time__input"
+                          type="number"
+                          id="toSliderDrillingdiameter"
+                          value="1000"
+                          min="0"
+                          max="1000"
+                          style="background-color: #F3F8FF;"
+                        />
+                      </div>
+                    </div>
+                    <div class="filter__item">
+                      <div class="filter__item-title">Мощность, Вт</div>
+                      <div class="sliders_control">
+                        <input
+                          id="fromSliderDrillingdiameter"
+                          type="range"
+                          value="0"
+                          min="0"
+                          max="1000"
+                        />
+                        <input
+                          id="toSliderDrillingdiameter"
+                          type="range"
+                          value="1000"
+                          min="0"
+                          max="1000"
+                        />
+                      </div>
+                      <div class="filter__item-box">
+                        <input
+                          placeholder="0"
+                          class="filter__item-input form_control_container__time__input"
+                          type="number"
+                          id="fromSliderDrillingdiameter"
+                          value="0"
+                          min="0"
+                          max="1000"
+                          style="background-color: #F3F8FF"
+                        />
+                        <input
+                          placeholder="1000"
+                          class="filter__item-input form_control_container__time__input"
+                          type="number"
+                          id="toSliderDrillingdiameter"
+                          value="1000"
+                          min="0"
+                          max="1000"
+                          style="background-color: #F3F8FF;"
                         />
                       </div>
                     </div>
@@ -170,7 +274,7 @@
                 </div>
               </form>
             </div>
-            <input type="text" placeholder="Я ищу..." class="c-input__input" />
+            <input type="text" placeholder="Я ищу..." class="c-input__input" id="im-searching" />
             <svg
               width="24"
               height="24"
@@ -201,17 +305,167 @@
       </div>
     </header>
   </body>
-</html>
 
+  <script src="../js/rangeSlider.js"></script>
+</html>
 
   <main id="main" class="main">
     <section class="splash">
-      <img src="/images/dist/splash.jpg" alt="" class="splash__img" />
       <p class="splash__title">
         Буровые установки<br />
         и оборудование
       </p>
+      <div class="splash__overlay"></div>
+      <img src="/images/dist/splash.jpg" alt="" class="splash__img" />
     </section>
+    <div class="pop-up-container section-2">
+      <div class="pop-up pop-up_calculate-the-cost mobile pop-up_mobile">
+        <h2 class="pop-up__title h2-title">
+          <span>Рассчитайте стоимость</span>
+          <svg
+            viewBox="0 0 16 16"
+            class="pop-up__icon"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="m3.333 4.273.94-.94 7.06 7.06V6h1.334v6.667H6v-1.334h4.393l-7.06-7.06Z"
+              fill="#09295A"
+            />
+          </svg>
+        </h2>
+        <form class="filter">
+          <div class="filter__inner">
+            <div class="filter__box">
+              <div class="filter__item">
+                <div class="filter__item-title">Диаметр бурения, мм</div>
+                <div class="sliders_control">
+                  <input
+                    id="fromSliderDrillingdiameter"
+                    type="range"
+                    value="0"
+                    min="0"
+                    max="1000"
+                  />
+                  <input
+                    id="toSliderDrillingdiameter"
+                    type="range"
+                    value="1000"
+                    min="0"
+                    max="1000"
+                  />
+                </div>
+                <div class="filter__item-box">
+                  <input
+                    placeholder="0"
+                    class="filter__item-input form_control_container__time__input"
+                    type="number"
+                    id="fromSliderDrillingdiameter"
+                    value="0"
+                    min="0"
+                    max="1000"
+                    style="background-color: #f3f8ff"
+                  />
+                  <input
+                    placeholder="1000"
+                    class="filter__item-input form_control_container__time__input"
+                    type="number"
+                    id="toSliderDrillingdiameter"
+                    value="1000"
+                    min="0"
+                    max="1000"
+                    style="background-color: #f3f8ff"
+                  />
+                </div>
+              </div>
+              <div class="filter__item">
+                <div class="filter__item-title">Диаметр, мм</div>
+                <div class="sliders_control">
+                  <input
+                    id="fromSliderDrillingdiameter"
+                    type="range"
+                    value="0"
+                    min="0"
+                    max="1000"
+                  />
+                  <input
+                    id="toSliderDrillingdiameter"
+                    type="range"
+                    value="1000"
+                    min="0"
+                    max="1000"
+                  />
+                </div>
+                <div class="filter__item-box">
+                  <input
+                    placeholder="0"
+                    class="filter__item-input form_control_container__time__input"
+                    type="number"
+                    id="fromSliderDrillingdiameter"
+                    value="0"
+                    min="0"
+                    max="1000"
+                    style="background-color: #f3f8ff"
+                  />
+                  <input
+                    placeholder="1000"
+                    class="filter__item-input form_control_container__time__input"
+                    type="number"
+                    id="toSliderDrillingdiameter"
+                    value="1000"
+                    min="0"
+                    max="1000"
+                    style="background-color: #f3f8ff"
+                  />
+                </div>
+              </div>
+              <div class="filter__item">
+                <div class="filter__item-title">Мощность, Вт</div>
+                <div class="sliders_control">
+                  <input
+                    id="fromSliderDrillingdiameter"
+                    type="range"
+                    value="0"
+                    min="0"
+                    max="1000"
+                  />
+                  <input
+                    id="toSliderDrillingdiameter"
+                    type="range"
+                    value="1000"
+                    min="0"
+                    max="1000"
+                  />
+                </div>
+                <div class="filter__item-box">
+                  <input
+                    placeholder="0"
+                    class="filter__item-input form_control_container__time__input"
+                    type="number"
+                    id="fromSliderDrillingdiameter"
+                    value="0"
+                    min="0"
+                    max="1000"
+                    style="background-color: #f3f8ff"
+                  />
+                  <input
+                    placeholder="1000"
+                    class="filter__item-input form_control_container__time__input"
+                    type="number"
+                    id="toSliderDrillingdiameter"
+                    value="1000"
+                    min="0"
+                    max="1000"
+                    style="background-color: #f3f8ff"
+                  />
+                </div>
+              </div>
+              <button class="btn btn_submit filter__btn">Узнать цену</button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
     <section class="index-drilling-rig-catalog container section-2">
       <div class="index-drilling-rig-catalog__box h2-title">
         <h2 class="index-drilling-rig-catalog__title">
@@ -280,7 +534,11 @@
           <button class="btn btn_show">Заказать</button>
         </div>
       </div>
-      <a href="#" class="show-btn mobile" style="margin-top: 20px">
+      <a
+        href="#"
+        class="show-btn mobile"
+        style="margin-top: 20px; padding: 0 20px"
+      >
         <span class="show-btn__name">Узнать больше</span>
         <svg
           width="16"
@@ -296,30 +554,9 @@
         </svg>
       </a>
     </section>
-    <!-- <section class="index-about-company">
-      <h2 class="index-about-company__title">О компании</h2>
-      <div class="index-about-company__box">
-        <ul class="index-about-company__ul">
-          <li class="index-about-company__ul-item">
-            <h1 class="index-about-company__ul-item-title">10+</h1>
-            <p class="index-about-company__ul-item-desc">лет опыта</p>
-          </li>
-          <li class="index-about-company__ul-item">
-            <h1 class="index-about-company__ul-item-title">1 000</h1>
-            <p class="index-about-company__ul-item-desc">клиентов</p>
-          </li>
-          <li class="index-about-company__ul-item">
-            <h1 class="index-about-company__ul-item-title">10 000</h1>
-            <p class="index-about-company__ul-item-desc">проектов</p>
-          </li>
-        </ul>
-        <img
-          src="images/dist/photo_company.png"
-          alt=""
-          class="index-about-company__img"
-        />
-      </div>
-      <p class="index-about-company__text">
+    <section class="index-about-company section-2">
+      <h2 class="index-about-company__title container">О компании</h2>
+      <p class="index-about-company__text desktop container">
         На территории России завод TANTO представлен официальным дилером
         ООО «Кузбасская Майнинговая Группа». Компания осуществляет поставку
         оригинальных решений и запасных частей в области бурового оборудования
@@ -328,13 +565,45 @@
         на всестороннюю поддержку со стороны персонала КМГ на протяжении всего
         периода эксплуатации оборудования.
       </p>
-    </section> -->
-    <section class="advantages">
+      <div class="index-about-company__box">
+        <div class="container">
+          <ul class="index-about-company__ul">
+            <li class="index-about-company__ul-item">
+              <h1 class="index-about-company__ul-item-title">10+</h1>
+              <p class="index-about-company__ul-item-desc">лет опыта</p>
+            </li>
+            <li class="index-about-company__ul-item">
+              <h1 class="index-about-company__ul-item-title">1 000</h1>
+              <p class="index-about-company__ul-item-desc">клиентов</p>
+            </li>
+            <li class="index-about-company__ul-item">
+              <h1 class="index-about-company__ul-item-title">10 000</h1>
+              <p class="index-about-company__ul-item-desc">проектов</p>
+            </li>
+          </ul>
+          <img
+            src="images/dist/photo_company.png"
+            alt=""
+            class="index-about-company__img"
+          />
+        </div>
+      </div>
+      <p class="index-about-company__text mobile">
+        На территории России завод TANTO представлен официальным дилером
+        ООО «Кузбасская Майнинговая Группа». Компания осуществляет поставку
+        оригинальных решений и запасных частей в области бурового оборудования
+        от производителя с последующим постпродажным техническим сопровождением
+        Заказчиков. Став обладателем техники TANTO, вы можете рассчитывать
+        на всестороннюю поддержку со стороны персонала КМГ на протяжении всего
+        периода эксплуатации оборудования.
+      </p>
+    </section>
+    <!-- <section class="advantages">
       <div class="advantages__box-1">
         <h2 class="advantages__title">Преимущества</h2>
         <h2 class="advantages__title">TX55S</h2>
       </div>
-    </section>
+    </section> -->
     <section class="index-partners container section-2">
       <h2 class="index-partners__title h2-title-2">Партнеры</h2>
       <ul class="index-partners-items">
@@ -433,16 +702,14 @@
         </div>
       </div>
     </section>
-    <section class="index-interested-in-our-products section-2">
+    <section class="index-interested-in-our-products">
       <div class="container">
         <h2 class="index-interested-in-our-products__title">
           Заинтересованы <br class="mobile" />в наших продуктах?
         </h2>
         <div class="index-interested-in-our-products__box">
           <button class="btn btn_submit">Оставить заявку</button>
-          <button
-            class="show-btn desktop show-btn__index-interested-in-our-products"
-          >
+          <button class="show-btn show-btn__index-interested-in-our-products">
             <span class="show-btn__name">К контактам</span>
             <svg
               width="16"

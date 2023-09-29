@@ -23,16 +23,19 @@
   @media (min-width: 1281px)
     width: auto
 
+  .modal-content
+    width: 100%
+
   &.modal_thanks
     .modal-content
       padding: 20px 20px 30px 20px
 
+      display: flex
+      flex-direction: column
+      align-items: center
+
       @media (min-width: 1281px)
         padding: 50px 50px 60px 50px
-
-        display: flex
-        flex-direction: column
-        align-items: center
 
     .modal-content__icon
       margin-bottom: 20px

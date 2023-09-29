@@ -1,11 +1,23 @@
+.index-about-company__title
+  margin-bottom: 40px
+  padding: 0 20px
+
+  @media (min-width: 1281px)
+    padding: 0
+
 .index-about-company__box
   padding: 20px 40px
 
   position: relative
 
   display: flex
+  // column-gap: 30px
 
   background-color: #09295A
+
+  @media (min-width: 1281px)
+    padding: 20px 0
+    padding-left: 40px
 
 .index-about-company__img
   position: absolute
@@ -13,19 +25,42 @@
   top: 50%
   right: 20px
 
-  transform: translate(0, -50%)
+  width: 170px
+  height: 100%
+
+  transform: translate(0, -50%) scale(1.1)
+
+  border-radius: 8px
+
+  @media (min-width: 1281px)
+    // display: none
+
+    top: auto
+    right: calc((100vw - 1280px) / 2)
+    bottom: -40px
+
+    transform: none !important
+
+    width: 490px
+    height: 452px
+
+    transform: translate(0, -50%)
 
 .index-about-company__ul
   display: flex
   flex-direction: column
   row-gap: 30px
 
+  @media (min-width: 1281px)
+    flex-direction: row
+    column-gap: 140px
+
 .index-about-company__ul-item
   position: relative
 
   &::before
     content: ''
-    
+
     position: absolute
 
     width: 2px
@@ -38,11 +73,16 @@
 
 .index-about-company__ul-item-title
   color: #ffffff
-  
+
 .index-about-company__ul-item-desc
   color: #ffffff
-  
+
 .index-about-company__text
   padding: 30px 20px 0 20px
 
   color: #6D98BA
+
+  @media (min-width: 1281px)
+    padding: 0
+    padding-right: 25%
+    margin-bottom: 80px

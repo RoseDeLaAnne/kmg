@@ -1,6 +1,10 @@
+.pop-up-container
+  padding: 0 20px
+  
 .pop-up
   padding: 30px 40px
 
+  display: none
   position: absolute
   top: 58px
   left: 0
@@ -8,13 +12,29 @@
   z-index: 70
 
   width: 400px
-  
+
   background-color: #ffffff
   border-radius: 0px 0px 24px 24px
-  
+
+  &.pop-up_mobile
+    display: block
+    position: relative !important
+    top: auto !important
+    left: auto !important
+
+    width: auto
+
+    background-color: #F3F8FF
+
+  .filter__item-title
+    font-size: 18px
+    line-height: 25px
+    
+    color: #6D98BA
+
 .pop-up__title
   color: #09295A
-  
+
 .pop-up__icon
   width: 46px
   height: 46px
