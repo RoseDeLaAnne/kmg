@@ -151,7 +151,7 @@
           <div class="c-input c-input_header desktop">
             <div
               class="pop-up pop-up_calculate-the-cost desktop"
-              id="pop-up_calculate-the-cost-desktop"
+              id="pop-up_calculate-the-cost-desktop-header"
             >
               <h2 class="pop-up__title h2-title">
                 <span>Рассчитайте стоимость</span>
@@ -167,7 +167,7 @@
                   />
                 </svg>
               </h2>
-              <form class="filter">
+              <form class="filter" id="filter-header">
                 <div class="filter__inner">
                   <div class="filter__box">
                     <div class="filter__item">
@@ -270,7 +270,6 @@
                       </div>
                       <div class="filter__item-box">
                         <input
-                          placeholder="0"
                           class="filter__item-input form_control_container__time__input"
                           type="number"
                           id="fromInputPower"
@@ -280,7 +279,6 @@
                           style="background-color: #f3f8ff"
                         />
                         <input
-                          placeholder="1000"
                           class="filter__item-input form_control_container__time__input"
                           type="number"
                           id="toInputPower"
@@ -291,7 +289,10 @@
                         />
                       </div>
                     </div>
-                    <button class="btn btn_submit filter__btn">
+                    <button
+                      class="btn btn_submit filter__btn"
+                      id="filter-btn-header"
+                    >
                       Узнать цену
                     </button>
                   </div>
@@ -335,7 +336,216 @@
     </header>
   </body>
 
-  <script src="../js/rangeSlider.js"></script>
+  <script>
+    function controlFromInput(fromSlider, fromInput, toInput, controlSlider) {
+      const [from, to] = getParsed(fromInput, toInput);
+      fillSlider(fromInput, toInput, "#B3C8DB", "#09295A", controlSlider);
+      if (from > to) {
+        fromSlider.value = to;
+        fromInput.value = to;
+      } else {
+        fromSlider.value = from;
+      }
+    }
+
+    function controlToInput(toSlider, fromInput, toInput, controlSlider) {
+      const [from, to] = getParsed(fromInput, toInput);
+      fillSlider(fromInput, toInput, "#B3C8DB", "#09295A", controlSlider);
+      setToggleAccessible(toInput, name);
+      if (from <= to) {
+        toSlider.value = to;
+        toInput.value = to;
+      } else {
+        toInput.value = from;
+      }
+    }
+
+    function controlFromSlider(fromSlider, toSlider, fromInput) {
+      const [from, to] = getParsed(fromSlider, toSlider);
+      fillSlider(fromSlider, toSlider, "#B3C8DB", "#09295A", toSlider);
+      if (from > to) {
+        fromSlider.value = to;
+        fromInput.value = to;
+      } else {
+        fromInput.value = from;
+      }
+    }
+
+    function controlToSlider(fromSlider, toSlider, toInput, name) {
+      const [from, to] = getParsed(fromSlider, toSlider);
+      fillSlider(fromSlider, toSlider, "#B3C8DB", "#09295A", toSlider);
+      setToggleAccessible(toSlider, name);
+      if (from <= to) {
+        toSlider.value = to;
+        toInput.value = to;
+      } else {
+        toInput.value = from;
+        toSlider.value = from;
+      }
+    }
+
+    function getParsed(currentFrom, currentTo) {
+      const from = parseInt(currentFrom.value, 10);
+      const to = parseInt(currentTo.value, 10);
+      return [from, to];
+    }
+
+    function fillSlider(from, to, sliderColor, rangeColor, controlSlider) {
+      const rangeDistance = to.max - to.min;
+      const fromPosition = from.value - to.min;
+      const toPosition = to.value - to.min;
+      controlSlider.style.background = `linear-gradient(
+    to right,
+    ${sliderColor} 0%,
+    ${sliderColor} ${(fromPosition / rangeDistance) * 100}%,
+    ${rangeColor} ${(fromPosition / rangeDistance) * 100}%,
+    ${rangeColor} ${(toPosition / rangeDistance) * 100}%, 
+    ${sliderColor} ${(toPosition / rangeDistance) * 100}%, 
+    ${sliderColor} 100%)`;
+    }
+
+    function setToggleAccessible(currentTarget, name) {
+      // const toSlider = document.querySelector("#toSliderDB");
+      const toSlider = document.querySelector(`#${name}`);
+      if (Number(currentTarget.value) <= 0) {
+        toSlider.style.zIndex = 2;
+      } else {
+        toSlider.style.zIndex = 0;
+      }
+    }
+
+    const fromSliderDrillingdiameter = document.querySelector(
+      "#fromSliderDrillingdiameter"
+    );
+    const toSliderDrillingdiameter = document.querySelector(
+      "#toSliderDrillingdiameter"
+    );
+    const fromInputDrillingdiameter = document.querySelector(
+      "#fromInputDrillingdiameter"
+    );
+    const toInputDrillingdiameter = document.querySelector(
+      "#toInputDrillingdiameter"
+    );
+    fillSlider(
+      fromSliderDrillingdiameter,
+      toSliderDrillingdiameter,
+      "#B3C8DB",
+      "#09295A",
+      toSliderDrillingdiameter
+    );
+    setToggleAccessible(toSliderDrillingdiameter, "toSliderDrillingdiameter");
+
+    fromSliderDrillingdiameter.oninput = () =>
+      controlFromSlider(
+        fromSliderDrillingdiameter,
+        toSliderDrillingdiameter,
+        fromInputDrillingdiameter
+      );
+    toSliderDrillingdiameter.oninput = () =>
+      controlToSlider(
+        fromSliderDrillingdiameter,
+        toSliderDrillingdiameter,
+        toInputDrillingdiameter,
+        "toSliderDrillingdiameter"
+      );
+    fromInputDrillingdiameter.oninput = () =>
+      controlFromInput(
+        fromSliderDrillingdiameter,
+        fromInputDrillingdiameter,
+        toInputDrillingdiameter,
+        toSliderDrillingdiameter
+      );
+    toInputDrillingdiameter.oninput = () =>
+      controlToInput(
+        toSliderDrillingdiameter,
+        fromInputDrillingdiameter,
+        toInputDrillingdiameter,
+        toSliderDrillingdiameter,
+        "toSliderDrillingdiameter"
+      );
+
+    const fromSliderDiameter = document.querySelector("#fromSliderDiameter");
+    const toSliderDiameter = document.querySelector("#toSliderDiameter");
+    const fromInputDiameter = document.querySelector("#fromInputDiameter");
+    const toInputDiameter = document.querySelector("#toInputDiameter");
+    fillSlider(
+      fromSliderDiameter,
+      toSliderDiameter,
+      "#B3C8DB",
+      "#09295A",
+      toSliderDiameter
+    );
+    setToggleAccessible(toSliderDiameter, "toSliderDiameter");
+
+    fromSliderDiameter.oninput = () =>
+      controlFromSlider(
+        fromSliderDiameter,
+        toSliderDiameter,
+        fromInputDiameter
+      );
+    toSliderDiameter.oninput = () =>
+      controlToSlider(
+        fromSliderDiameter,
+        toSliderDiameter,
+        toInputDiameter,
+        "toSliderDiameter"
+      );
+    fromInputDiameter.oninput = () =>
+      controlFromInput(
+        fromSliderDiameter,
+        fromInputDiameter,
+        toInputDiameter,
+        toSliderDiameter
+      );
+    toInputDiameter.oninput = () =>
+      controlToInput(
+        toSliderDiameter,
+        fromInputDiameter,
+        toInputDiameter,
+        toSliderDiameter,
+        "toSliderDiameter"
+      );
+
+    const fromSliderPower = document.querySelector("#fromSliderPower");
+    const toSliderPower = document.querySelector("#toSliderPower");
+    const fromInputPower = document.querySelector("#fromInputPower");
+    const toInputPower = document.querySelector("#toInputPower");
+    fillSlider(
+      fromSliderPower,
+      toSliderPower,
+      "#B3C8DB",
+      "#09295A",
+      toSliderPower
+    );
+    setToggleAccessible(toSliderPower, "toSliderPower");
+
+    fromSliderPower.oninput = () =>
+      controlFromSlider(fromSliderPower, toSliderPower, fromInputPower);
+    toSliderPower.oninput = () =>
+      controlToSlider(
+        fromSliderPower,
+        toSliderPower,
+        toInputPower,
+        "toSliderPower"
+      );
+    fromInputPower.oninput = () =>
+      controlFromInput(
+        fromSliderPower,
+        fromInputPower,
+        toInputPower,
+        toSliderPower
+      );
+    toInputPower.oninput = () =>
+      controlToInput(
+        toSliderPower,
+        fromInputPower,
+        toInputPower,
+        toSliderPower,
+        "toSliderPower"
+      );
+  </script>
+
+  <!-- <script src="../js/rangeSlider.js"></script> -->
 </html>
 
   <div class="modal modal_leave-a-request">

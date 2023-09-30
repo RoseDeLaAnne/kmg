@@ -17,9 +17,9 @@ document.addEventListener("DOMContentLoaded", () => {
     cInputAdaptive.classList.add('block')
   })
 
-  imSearchingInput.addEventListener('focus', function () {
-    document.getElementById('pop-up_calculate-the-cost-desktop').classList.add('block')
-  });
+  // imSearchingInput.addEventListener('focus', function () {
+  //   document.getElementById('pop-up_calculate-the-cost-desktop').classList.add('block')
+  // });
   // imSearchingInput.addEventListener('blur', function () {
   //   document.getElementById('pop-up_calculate-the-cost-desktop').classList.remove('block')
   // });
@@ -34,4 +34,21 @@ document.addEventListener("DOMContentLoaded", () => {
     document.querySelector(".modal-background").classList.add("show");
     document.body.style.overflow = "hidden";
   });
+
+  const popUpHeaderCalc = document.getElementById('pop-up_calculate-the-cost-desktop-header');
+
+  // Function to handle clicks outside the trigger button
+  function handleClickOutside(event) {
+      if (!imSearchingInput.contains(event.target) && !popUpHeaderCalc.contains(event.target)) {
+
+          popUpHeaderCalc.classList.remove('block')
+      }
+  }
+
+  imSearchingInput.addEventListener('focus', function () {
+    popUpHeaderCalc.classList.add('block')
+  });
+
+  // Add a click event listener to the document to handle clicks outside
+  document.addEventListener('click', handleClickOutside);
 });

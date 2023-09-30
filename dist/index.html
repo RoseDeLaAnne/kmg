@@ -151,7 +151,7 @@
           <div class="c-input c-input_header desktop">
             <div
               class="pop-up pop-up_calculate-the-cost desktop"
-              id="pop-up_calculate-the-cost-desktop"
+              id="pop-up_calculate-the-cost-desktop-header"
             >
               <h2 class="pop-up__title h2-title">
                 <span>Рассчитайте стоимость</span>
@@ -167,7 +167,7 @@
                   />
                 </svg>
               </h2>
-              <form class="filter">
+              <form class="filter" id="filter-header">
                 <div class="filter__inner">
                   <div class="filter__box">
                     <div class="filter__item">
@@ -270,7 +270,6 @@
                       </div>
                       <div class="filter__item-box">
                         <input
-                          placeholder="0"
                           class="filter__item-input form_control_container__time__input"
                           type="number"
                           id="fromInputPower"
@@ -280,7 +279,6 @@
                           style="background-color: #f3f8ff"
                         />
                         <input
-                          placeholder="1000"
                           class="filter__item-input form_control_container__time__input"
                           type="number"
                           id="toInputPower"
@@ -291,7 +289,10 @@
                         />
                       </div>
                     </div>
-                    <button class="btn btn_submit filter__btn">
+                    <button
+                      class="btn btn_submit filter__btn"
+                      id="filter-btn-header"
+                    >
                       Узнать цену
                     </button>
                   </div>
@@ -335,7 +336,216 @@
     </header>
   </body>
 
-  <script src="../js/rangeSlider.js"></script>
+  <script>
+    function controlFromInput(fromSlider, fromInput, toInput, controlSlider) {
+      const [from, to] = getParsed(fromInput, toInput);
+      fillSlider(fromInput, toInput, "#B3C8DB", "#09295A", controlSlider);
+      if (from > to) {
+        fromSlider.value = to;
+        fromInput.value = to;
+      } else {
+        fromSlider.value = from;
+      }
+    }
+
+    function controlToInput(toSlider, fromInput, toInput, controlSlider) {
+      const [from, to] = getParsed(fromInput, toInput);
+      fillSlider(fromInput, toInput, "#B3C8DB", "#09295A", controlSlider);
+      setToggleAccessible(toInput, name);
+      if (from <= to) {
+        toSlider.value = to;
+        toInput.value = to;
+      } else {
+        toInput.value = from;
+      }
+    }
+
+    function controlFromSlider(fromSlider, toSlider, fromInput) {
+      const [from, to] = getParsed(fromSlider, toSlider);
+      fillSlider(fromSlider, toSlider, "#B3C8DB", "#09295A", toSlider);
+      if (from > to) {
+        fromSlider.value = to;
+        fromInput.value = to;
+      } else {
+        fromInput.value = from;
+      }
+    }
+
+    function controlToSlider(fromSlider, toSlider, toInput, name) {
+      const [from, to] = getParsed(fromSlider, toSlider);
+      fillSlider(fromSlider, toSlider, "#B3C8DB", "#09295A", toSlider);
+      setToggleAccessible(toSlider, name);
+      if (from <= to) {
+        toSlider.value = to;
+        toInput.value = to;
+      } else {
+        toInput.value = from;
+        toSlider.value = from;
+      }
+    }
+
+    function getParsed(currentFrom, currentTo) {
+      const from = parseInt(currentFrom.value, 10);
+      const to = parseInt(currentTo.value, 10);
+      return [from, to];
+    }
+
+    function fillSlider(from, to, sliderColor, rangeColor, controlSlider) {
+      const rangeDistance = to.max - to.min;
+      const fromPosition = from.value - to.min;
+      const toPosition = to.value - to.min;
+      controlSlider.style.background = `linear-gradient(
+    to right,
+    ${sliderColor} 0%,
+    ${sliderColor} ${(fromPosition / rangeDistance) * 100}%,
+    ${rangeColor} ${(fromPosition / rangeDistance) * 100}%,
+    ${rangeColor} ${(toPosition / rangeDistance) * 100}%, 
+    ${sliderColor} ${(toPosition / rangeDistance) * 100}%, 
+    ${sliderColor} 100%)`;
+    }
+
+    function setToggleAccessible(currentTarget, name) {
+      // const toSlider = document.querySelector("#toSliderDB");
+      const toSlider = document.querySelector(`#${name}`);
+      if (Number(currentTarget.value) <= 0) {
+        toSlider.style.zIndex = 2;
+      } else {
+        toSlider.style.zIndex = 0;
+      }
+    }
+
+    const fromSliderDrillingdiameter = document.querySelector(
+      "#fromSliderDrillingdiameter"
+    );
+    const toSliderDrillingdiameter = document.querySelector(
+      "#toSliderDrillingdiameter"
+    );
+    const fromInputDrillingdiameter = document.querySelector(
+      "#fromInputDrillingdiameter"
+    );
+    const toInputDrillingdiameter = document.querySelector(
+      "#toInputDrillingdiameter"
+    );
+    fillSlider(
+      fromSliderDrillingdiameter,
+      toSliderDrillingdiameter,
+      "#B3C8DB",
+      "#09295A",
+      toSliderDrillingdiameter
+    );
+    setToggleAccessible(toSliderDrillingdiameter, "toSliderDrillingdiameter");
+
+    fromSliderDrillingdiameter.oninput = () =>
+      controlFromSlider(
+        fromSliderDrillingdiameter,
+        toSliderDrillingdiameter,
+        fromInputDrillingdiameter
+      );
+    toSliderDrillingdiameter.oninput = () =>
+      controlToSlider(
+        fromSliderDrillingdiameter,
+        toSliderDrillingdiameter,
+        toInputDrillingdiameter,
+        "toSliderDrillingdiameter"
+      );
+    fromInputDrillingdiameter.oninput = () =>
+      controlFromInput(
+        fromSliderDrillingdiameter,
+        fromInputDrillingdiameter,
+        toInputDrillingdiameter,
+        toSliderDrillingdiameter
+      );
+    toInputDrillingdiameter.oninput = () =>
+      controlToInput(
+        toSliderDrillingdiameter,
+        fromInputDrillingdiameter,
+        toInputDrillingdiameter,
+        toSliderDrillingdiameter,
+        "toSliderDrillingdiameter"
+      );
+
+    const fromSliderDiameter = document.querySelector("#fromSliderDiameter");
+    const toSliderDiameter = document.querySelector("#toSliderDiameter");
+    const fromInputDiameter = document.querySelector("#fromInputDiameter");
+    const toInputDiameter = document.querySelector("#toInputDiameter");
+    fillSlider(
+      fromSliderDiameter,
+      toSliderDiameter,
+      "#B3C8DB",
+      "#09295A",
+      toSliderDiameter
+    );
+    setToggleAccessible(toSliderDiameter, "toSliderDiameter");
+
+    fromSliderDiameter.oninput = () =>
+      controlFromSlider(
+        fromSliderDiameter,
+        toSliderDiameter,
+        fromInputDiameter
+      );
+    toSliderDiameter.oninput = () =>
+      controlToSlider(
+        fromSliderDiameter,
+        toSliderDiameter,
+        toInputDiameter,
+        "toSliderDiameter"
+      );
+    fromInputDiameter.oninput = () =>
+      controlFromInput(
+        fromSliderDiameter,
+        fromInputDiameter,
+        toInputDiameter,
+        toSliderDiameter
+      );
+    toInputDiameter.oninput = () =>
+      controlToInput(
+        toSliderDiameter,
+        fromInputDiameter,
+        toInputDiameter,
+        toSliderDiameter,
+        "toSliderDiameter"
+      );
+
+    const fromSliderPower = document.querySelector("#fromSliderPower");
+    const toSliderPower = document.querySelector("#toSliderPower");
+    const fromInputPower = document.querySelector("#fromInputPower");
+    const toInputPower = document.querySelector("#toInputPower");
+    fillSlider(
+      fromSliderPower,
+      toSliderPower,
+      "#B3C8DB",
+      "#09295A",
+      toSliderPower
+    );
+    setToggleAccessible(toSliderPower, "toSliderPower");
+
+    fromSliderPower.oninput = () =>
+      controlFromSlider(fromSliderPower, toSliderPower, fromInputPower);
+    toSliderPower.oninput = () =>
+      controlToSlider(
+        fromSliderPower,
+        toSliderPower,
+        toInputPower,
+        "toSliderPower"
+      );
+    fromInputPower.oninput = () =>
+      controlFromInput(
+        fromSliderPower,
+        fromInputPower,
+        toInputPower,
+        toSliderPower
+      );
+    toInputPower.oninput = () =>
+      controlToInput(
+        toSliderPower,
+        fromInputPower,
+        toInputPower,
+        toSliderPower,
+        "toSliderPower"
+      );
+  </script>
+
+  <!-- <script src="../js/rangeSlider.js"></script> -->
 </html>
 
   <main id="main" class="main">
@@ -370,40 +580,38 @@
                 <div class="filter__item-title">Диаметр бурения, мм</div>
                 <div class="sliders_control">
                   <input
-                    id="fromSliderDrillingdiameter"
+                    id="fromSliderDrillingdiameter2"
                     type="range"
-                    value="0"
+                    value="500"
                     min="0"
-                    max="1000"
+                    max="5000"
                   />
                   <input
-                    id="toSliderDrillingdiameter"
+                    id="toSliderDrillingdiameter2"
                     type="range"
-                    value="1000"
+                    value="5000"
                     min="0"
-                    max="1000"
+                    max="5000"
                   />
                 </div>
                 <div class="filter__item-box">
                   <input
-                    placeholder="0"
                     class="filter__item-input form_control_container__time__input"
                     type="number"
-                    id="fromSliderDrillingdiameter"
-                    value="0"
+                    id="fromInputDrillingdiameter2"
+                    value="500"
                     min="0"
-                    max="1000"
-                    style="background-color: #f3f8ff"
+                    max="5000"
+                    style="background-color: #fff"
                   />
                   <input
-                    placeholder="1000"
                     class="filter__item-input form_control_container__time__input"
                     type="number"
-                    id="toSliderDrillingdiameter"
-                    value="1000"
+                    id="toInputDrillingdiameter2"
+                    value="5000"
                     min="0"
-                    max="1000"
-                    style="background-color: #f3f8ff"
+                    max="5000"
+                    style="background-color: #fff"
                   />
                 </div>
               </div>
@@ -411,18 +619,18 @@
                 <div class="filter__item-title">Диаметр, мм</div>
                 <div class="sliders_control">
                   <input
-                    id="fromSliderDrillingdiameter"
+                    id="fromSliderDiameter2"
                     type="range"
-                    value="0"
+                    value="500"
                     min="0"
-                    max="1000"
+                    max="5000"
                   />
                   <input
-                    id="toSliderDrillingdiameter"
+                    id="toSliderDiameter2"
                     type="range"
-                    value="1000"
+                    value="5000"
                     min="0"
-                    max="1000"
+                    max="5000"
                   />
                 </div>
                 <div class="filter__item-box">
@@ -430,21 +638,21 @@
                     placeholder="0"
                     class="filter__item-input form_control_container__time__input"
                     type="number"
-                    id="fromSliderDrillingdiameter"
-                    value="0"
+                    id="fromInputDiameter2"
+                    value="500"
                     min="0"
-                    max="1000"
-                    style="background-color: #f3f8ff"
+                    max="5000"
+                    style="background-color: #fff"
                   />
                   <input
                     placeholder="1000"
                     class="filter__item-input form_control_container__time__input"
                     type="number"
-                    id="toSliderDrillingdiameter"
-                    value="1000"
+                    id="toInputDiameter2"
+                    value="5000"
                     min="0"
-                    max="1000"
-                    style="background-color: #f3f8ff"
+                    max="5000"
+                    style="background-color: #fff"
                   />
                 </div>
               </div>
@@ -452,40 +660,38 @@
                 <div class="filter__item-title">Мощность, Вт</div>
                 <div class="sliders_control">
                   <input
-                    id="fromSliderDrillingdiameter"
+                    id="fromSliderPower2"
                     type="range"
-                    value="0"
+                    value="500"
                     min="0"
-                    max="1000"
+                    max="5000"
                   />
                   <input
-                    id="toSliderDrillingdiameter"
+                    id="toSliderPower2"
                     type="range"
-                    value="1000"
+                    value="5000"
                     min="0"
-                    max="1000"
+                    max="5000"
                   />
                 </div>
                 <div class="filter__item-box">
                   <input
-                    placeholder="0"
                     class="filter__item-input form_control_container__time__input"
                     type="number"
-                    id="fromSliderDrillingdiameter"
-                    value="0"
+                    id="fromInputPower2"
+                    value="500"
                     min="0"
-                    max="1000"
-                    style="background-color: #f3f8ff"
+                    max="5000"
+                    style="background-color: #fff"
                   />
                   <input
-                    placeholder="1000"
                     class="filter__item-input form_control_container__time__input"
                     type="number"
-                    id="toSliderDrillingdiameter"
-                    value="1000"
+                    id="toInputPower2"
+                    value="5000"
                     min="0"
-                    max="1000"
-                    style="background-color: #f3f8ff"
+                    max="5000"
+                    style="background-color: #fff"
                   />
                 </div>
               </div>
@@ -636,22 +842,43 @@
       <div class="index-advantages__box-2">
         <div class="index-advantages__box-21">
           <div class="index-advantages__box-211">
-            <img src="images/dist/advantages.png" alt="" class="index-advantages__img">
+            <img
+              src="images/dist/advantages.png"
+              alt=""
+              class="index-advantages__img"
+            />
           </div>
         </div>
 
         <div class="index-advantages__box-22">
           <div class="index-advantages__item">
-            <h3 class="index-advantages__item-title">Двухмоторный редуктор вращателя</h3>
-            <p class="index-advantages__item-text">Редуктор вращателя с высоким крутящим моментом. Рекомендован для работы с погружными пневмоударниками диаметром 4–7 дюймов. Подходит для быстрого бурения в условиях мягких и крепких пород.</p>
+            <h3 class="index-advantages__item-title">
+              Двухмоторный редуктор вращателя
+            </h3>
+            <p class="index-advantages__item-text">
+              Редуктор вращателя с высоким крутящим моментом. Рекомендован
+              для работы с погружными пневмоударниками диаметром 4–7 дюймов.
+              Подходит для быстрого бурения в условиях мягких и крепких пород.
+            </p>
           </div>
           <div class="index-advantages__item">
-            <h3 class="index-advantages__item-title">Двухступенчатый <br />винтовой компрессор и ДВС</h3>
-            <p class="index-advantages__item-text">Буровой станок оснащён двухступенчатым винтовым компрессором для высоких нагрузок марки Sullivan- Palatek (США). Низкая мощность на валу, экономное потребление энергии.</p>
+            <h3 class="index-advantages__item-title">
+              Двухступенчатый <br />винтовой компрессор и ДВС
+            </h3>
+            <p class="index-advantages__item-text">
+              Буровой станок оснащён двухступенчатым винтовым компрессором
+              для высоких нагрузок марки Sullivan- Palatek (США). Низкая
+              мощность на валу, экономное потребление энергии.
+            </p>
           </div>
           <div class="index-advantages__item">
             <h3 class="index-advantages__item-title">Шасси и стрела</h3>
-            <p class="index-advantages__item-text">Гусеничным лентам буровых станков TX55S/TX60S свойственны высокая манёвренность и безопасность. Данная конструкция обеспечивает наилучший угол обзора для машиниста, способствуя упрощённому и точному прямому позиционированию.</p>
+            <p class="index-advantages__item-text">
+              Гусеничным лентам буровых станков TX55S/TX60S свойственны высокая
+              манёвренность и безопасность. Данная конструкция обеспечивает
+              наилучший угол обзора для машиниста, способствуя упрощённому
+              и точному прямому позиционированию.
+            </p>
           </div>
         </div>
       </div>
@@ -803,6 +1030,213 @@
         newsText.textContent = truncatedText;
       }
     });
+
+    function controlFromInput(fromSlider, fromInput, toInput, controlSlider) {
+      const [from, to] = getParsed(fromInput, toInput);
+      fillSlider(fromInput, toInput, "#B3C8DB", "#09295A", controlSlider);
+      if (from > to) {
+        fromSlider.value = to;
+        fromInput.value = to;
+      } else {
+        fromSlider.value = from;
+      }
+    }
+
+    function controlToInput(toSlider, fromInput, toInput, controlSlider) {
+      const [from, to] = getParsed(fromInput, toInput);
+      fillSlider(fromInput, toInput, "#B3C8DB", "#09295A", controlSlider);
+      setToggleAccessible(toInput, name);
+      if (from <= to) {
+        toSlider.value = to;
+        toInput.value = to;
+      } else {
+        toInput.value = from;
+      }
+    }
+
+    function controlFromSlider(fromSlider, toSlider, fromInput) {
+      const [from, to] = getParsed(fromSlider, toSlider);
+      fillSlider(fromSlider, toSlider, "#B3C8DB", "#09295A", toSlider);
+      if (from > to) {
+        fromSlider.value = to;
+        fromInput.value = to;
+      } else {
+        fromInput.value = from;
+      }
+    }
+
+    function controlToSlider(fromSlider, toSlider, toInput, name) {
+      const [from, to] = getParsed(fromSlider, toSlider);
+      fillSlider(fromSlider, toSlider, "#B3C8DB", "#09295A", toSlider);
+      setToggleAccessible(toSlider, name);
+      if (from <= to) {
+        toSlider.value = to;
+        toInput.value = to;
+      } else {
+        toInput.value = from;
+        toSlider.value = from;
+      }
+    }
+
+    function getParsed(currentFrom, currentTo) {
+      const from = parseInt(currentFrom.value, 10);
+      const to = parseInt(currentTo.value, 10);
+      return [from, to];
+    }
+
+    function fillSlider(from, to, sliderColor, rangeColor, controlSlider) {
+      const rangeDistance = to.max - to.min;
+      const fromPosition = from.value - to.min;
+      const toPosition = to.value - to.min;
+      controlSlider.style.background = `linear-gradient(
+    to right,
+    ${sliderColor} 0%,
+    ${sliderColor} ${(fromPosition / rangeDistance) * 100}%,
+    ${rangeColor} ${(fromPosition / rangeDistance) * 100}%,
+    ${rangeColor} ${(toPosition / rangeDistance) * 100}%, 
+    ${sliderColor} ${(toPosition / rangeDistance) * 100}%, 
+    ${sliderColor} 100%)`;
+    }
+
+    function setToggleAccessible(currentTarget, name) {
+      // const toSlider = document.querySelector("#toSliderDB");
+      const toSlider = document.querySelector(`#${name}`);
+      if (Number(currentTarget.value) <= 0) {
+        toSlider.style.zIndex = 2;
+      } else {
+        toSlider.style.zIndex = 0;
+      }
+    }
+
+    const fromSliderDrillingdiameter2 = document.querySelector(
+      "#fromSliderDrillingdiameter2"
+    );
+    const toSliderDrillingdiameter2 = document.querySelector(
+      "#toSliderDrillingdiameter2"
+    );
+    const fromInputDrillingdiameter2 = document.querySelector(
+      "#fromInputDrillingdiameter2"
+    );
+    const toInputDrillingdiameter2 = document.querySelector(
+      "#toInputDrillingdiameter2"
+    );
+    fillSlider(
+      fromSliderDrillingdiameter2,
+      toSliderDrillingdiameter2,
+      "#B3C8DB",
+      "#09295A",
+      toSliderDrillingdiameter2
+    );
+    setToggleAccessible(toSliderDrillingdiameter2, "toSliderDrillingdiameter2");
+
+    fromSliderDrillingdiameter2.oninput = () =>
+      controlFromSlider(
+        fromSliderDrillingdiameter2,
+        toSliderDrillingdiameter2,
+        fromInputDrillingdiameter2
+      );
+    toSliderDrillingdiameter2.oninput = () =>
+      controlToSlider(
+        fromSliderDrillingdiameter2,
+        toSliderDrillingdiameter2,
+        toInputDrillingdiameter2,
+        "toSliderDrillingdiameter2"
+      );
+    fromInputDrillingdiameter2.oninput = () =>
+      controlFromInput(
+        fromSliderDrillingdiameter2,
+        fromInputDrillingdiameter2,
+        toInputDrillingdiameter2,
+        toSliderDrillingdiameter2
+      );
+    toInputDrillingdiameter2.oninput = () =>
+      controlToInput(
+        toSliderDrillingdiameter2,
+        fromInputDrillingdiameter2,
+        toInputDrillingdiameter2,
+        toSliderDrillingdiameter2,
+        "toSliderDrillingdiameter2"
+      );
+
+    const fromSliderDiameter2 = document.querySelector("#fromSliderDiameter2");
+    const toSliderDiameter2 = document.querySelector("#toSliderDiameter2");
+    const fromInputDiameter2 = document.querySelector("#fromInputDiameter2");
+    const toInputDiameter2 = document.querySelector("#toInputDiameter2");
+    fillSlider(
+      fromSliderDiameter2,
+      toSliderDiameter2,
+      "#B3C8DB",
+      "#09295A",
+      toSliderDiameter2
+    );
+    setToggleAccessible(toSliderDiameter2, "toSliderDiameter2");
+
+    fromSliderDiameter2.oninput = () =>
+      controlFromSlider(
+        fromSliderDiameter2,
+        toSliderDiameter2,
+        fromInputDiameter2
+      );
+    toSliderDiameter2.oninput = () =>
+      controlToSlider(
+        fromSliderDiameter2,
+        toSliderDiameter2,
+        toInputDiameter2,
+        "toSliderDiameter2"
+      );
+    fromInputDiameter2.oninput = () =>
+      controlFromInput(
+        fromSliderDiameter2,
+        fromInputDiameter2,
+        toInputDiameter2,
+        toSliderDiameter2
+      );
+    toInputDiameter2.oninput = () =>
+      controlToInput(
+        toSliderDiameter2,
+        fromInputDiameter2,
+        toInputDiameter2,
+        toSliderDiameter2,
+        "toSliderDiameter2"
+      );
+
+    const fromSliderPower2 = document.querySelector("#fromSliderPower2");
+    const toSliderPower2 = document.querySelector("#toSliderPower2");
+    const fromInputPower2 = document.querySelector("#fromInputPower2");
+    const toInputPower2 = document.querySelector("#toInputPower2");
+    fillSlider(
+      fromSliderPower2,
+      toSliderPower2,
+      "#B3C8DB",
+      "#09295A",
+      toSliderPower2
+    );
+    setToggleAccessible(toSliderPower2, "toSliderPower2");
+
+    fromSliderPower2.oninput = () =>
+      controlFromSlider(fromSliderPower2, toSliderPower2, fromInputPower2);
+    toSliderPower2.oninput = () =>
+      controlToSlider(
+        fromSliderPower2,
+        toSliderPower2,
+        toInputPower2,
+        "toSliderPower2"
+      );
+    fromInputPower2.oninput = () =>
+      controlFromInput(
+        fromSliderPower2,
+        fromInputPower2,
+        toInputPower2,
+        toSliderPower2
+      );
+    toInputPower2.oninput = () =>
+      controlToInput(
+        toSliderPower2,
+        fromInputPower2,
+        toInputPower2,
+        toSliderPower2,
+        "toSliderPower2"
+      );
   </script>
   	<footer id="footer" class="footer">
 		<div class="footer__top container">
