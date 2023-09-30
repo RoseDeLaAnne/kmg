@@ -74,18 +74,18 @@
                 <div class="filter__item-title">Диаметр бурения, мм</div>
                 <div class="sliders_control">
                   <input
-                    id="fromSlider"
+                    id="fromSliderDB"
                     type="range"
-                    value="0"
-                    min="0"
-                    max="1000"
+                    value="76"
+                    min="76"
+                    max="253"
                   />
                   <input
-                    id="toSlider"
+                    id="toSliderDB"
                     type="range"
-                    value="1000"
-                    min="0"
-                    max="1000"
+                    value="253"
+                    min="76"
+                    max="253"
                   />
                 </div>
                 <div class="filter__item-box">
@@ -93,20 +93,178 @@
                     placeholder="0"
                     class="filter__item-input form_control_container__time__input"
                     type="number"
-                    id="fromInput"
-                    value="0"
-                    min="0"
-                    max="1000"
+                    id="fromInputDB"
+                    value="76"
+                    min="76"
+                    max="253"
                   />
                   <div class="filter__item-decor"></div>
                   <input
                     placeholder="1000"
                     class="filter__item-input form_control_container__time__input"
                     type="number"
-                    id="toInput"
-                    value="1000"
-                    min="0"
-                    max="1000"
+                    id="toInputDB"
+                    value="253"
+                    min="76"
+                    max="253"
+                  />
+                </div>
+              </div>
+              <div class="filter__item">
+                <div class="filter__item-title">Глубина бурения, м</div>
+                <div class="sliders_control">
+                  <input
+                    id="fromSliderGB"
+                    type="range"
+                    value="5"
+                    min="5"
+                    max="36"
+                  />
+                  <input
+                    id="toSliderGB"
+                    type="range"
+                    value="36"
+                    min="5"
+                    max="36"
+                  />
+                </div>
+                <div class="filter__item-box">
+                  <input
+                    placeholder="0"
+                    class="filter__item-input form_control_container__time__input"
+                    type="number"
+                    id="fromInputGB"
+                    value="5"
+                    min="5"
+                    max="36"
+                  />
+                  <div class="filter__item-decor"></div>
+                  <input
+                    placeholder="1000"
+                    class="filter__item-input form_control_container__time__input"
+                    type="number"
+                    id="toInputGB"
+                    value="36"
+                    min="5"
+                    max="36"
+                  />
+                </div>
+              </div>
+              <div class="filter__item">
+                <div class="filter__item-title">Мощность ДВС, кВт</div>
+                <div class="sliders_control">
+                  <input
+                    id="fromSliderDBS"
+                    type="range"
+                    value="191"
+                    min="191"
+                    max="354"
+                  />
+                  <input
+                    id="toSliderDBS"
+                    type="range"
+                    value="354"
+                    min="191"
+                    max="354"
+                  />
+                </div>
+                <div class="filter__item-box">
+                  <input
+                    placeholder="0"
+                    class="filter__item-input form_control_container__time__input"
+                    type="number"
+                    id="fromInputDBS"
+                    value="191"
+                    min="191"
+                    max="354"
+                  />
+                  <div class="filter__item-decor"></div>
+                  <input
+                    placeholder="1000"
+                    class="filter__item-input form_control_container__time__input"
+                    type="number"
+                    id="toInputDBS"
+                    value="354"
+                    min="191"
+                    max="354"
+                  />
+                </div>
+              </div>
+              <div class="filter__item">
+                <div class="filter__item-title">Производительность компрессора, куб.м/мин</div>
+                <div class="sliders_control">
+                  <input
+                    id="fromSliderPC"
+                    type="range"
+                    value="10"
+                    min="10"
+                    max="32"
+                  />
+                  <input
+                    id="toSliderPC"
+                    type="range"
+                    value="32"
+                    min="10"
+                    max="32"
+                  />
+                </div>
+                <div class="filter__item-box">
+                  <input
+                    placeholder="0"
+                    class="filter__item-input form_control_container__time__input"
+                    type="number"
+                    id="fromInputPC"
+                    value="10"
+                    min="10"
+                    max="32"
+                  />
+                  <div class="filter__item-decor"></div>
+                  <input
+                    placeholder="1000"
+                    class="filter__item-input form_control_container__time__input"
+                    type="number"
+                    id="toInputPC"
+                    value="32"
+                    min="10"
+                    max="32"
+                  />
+                </div>
+              </div>
+              <div class="filter__item">
+                <div class="filter__item-title">Давление компрессора, бар</div>
+                <div class="sliders_control">
+                  <input
+                    id="fromSliderDC"
+                    type="range"
+                    value="10"
+                    min="10"
+                    max="30"
+                  />
+                  <input
+                    id="toSliderDC"
+                    type="range"
+                    value="30"
+                    min="10"
+                    max="30"
+                  />
+                </div>
+                <div class="filter__item-box">
+                  <input
+                    class="filter__item-input form_control_container__time__input"
+                    type="number"
+                    id="fromInputDC"
+                    value="10"
+                    min="10"
+                    max="30"
+                  />
+                  <div class="filter__item-decor"></div>
+                  <input
+                    class="filter__item-input form_control_container__time__input"
+                    type="number"
+                    id="toInputDC"
+                    value="30"
+                    min="10"
+                    max="30"
                   />
                 </div>
               </div>
@@ -211,7 +369,8 @@
     }
 
     const showFilter = () => {
-      document.querySelector(".filter").classList.toggle("hide");
+      console.log(document.querySelector(".filter"))
+      document.querySelector(".filter_catalog").classList.toggle("hide");
       document.getElementById(`show-btn__icon`).classList.toggle("rotate");
     };
   </script>

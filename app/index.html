@@ -291,12 +291,35 @@
         периода эксплуатации оборудования.
       </p>
     </section>
-    <!-- <section class="advantages">
-      <div class="advantages__box-1">
-        <h2 class="advantages__title">Преимущества</h2>
-        <h2 class="advantages__title">TX55S</h2>
+    <section class="index-advantages container section-2">
+      <div class="index-advantages__box-1 h2-title-2">
+        <h2 class="index-advantages__title">Преимущества</h2>
+        <h2 class="index-advantages__title-2">TX55S</h2>
       </div>
-    </section> -->
+
+      <div class="index-advantages__box-2">
+        <div class="index-advantages__box-21">
+          <div class="index-advantages__box-211">
+            <img src="images/dist/advantages.png" alt="" class="index-advantages__img">
+          </div>
+        </div>
+
+        <div class="index-advantages__box-22">
+          <div class="index-advantages__item">
+            <h3 class="index-advantages__item-title">Двухмоторный редуктор вращателя</h3>
+            <p class="index-advantages__item-text">Редуктор вращателя с высоким крутящим моментом. Рекомендован для работы с погружными пневмоударниками диаметром 4–7 дюймов. Подходит для быстрого бурения в условиях мягких и крепких пород.</p>
+          </div>
+          <div class="index-advantages__item">
+            <h3 class="index-advantages__item-title">Двухступенчатый <br />винтовой компрессор и ДВС</h3>
+            <p class="index-advantages__item-text">Буровой станок оснащён двухступенчатым винтовым компрессором для высоких нагрузок марки Sullivan- Palatek (США). Низкая мощность на валу, экономное потребление энергии.</p>
+          </div>
+          <div class="index-advantages__item">
+            <h3 class="index-advantages__item-title">Шасси и стрела</h3>
+            <p class="index-advantages__item-text">Гусеничным лентам буровых станков TX55S/TX60S свойственны высокая манёвренность и безопасность. Данная конструкция обеспечивает наилучший угол обзора для машиниста, способствуя упрощённому и точному прямому позиционированию.</p>
+          </div>
+        </div>
+      </div>
+    </section>
     <section class="index-partners container section-2">
       <h2 class="index-partners__title h2-title-2">Партнеры</h2>
       <ul class="index-partners-items">
@@ -344,11 +367,13 @@
       </div>
       <div class="index-news-items">
         <div class="index-news-items__item">
-          <img
-            src="images/dist/image.jpg"
-            alt=""
-            class="index-news-items__item-img"
-          />
+          <div class="image-wrapper">
+            <img
+              src="images/dist/image.jpg"
+              alt=""
+              class="index-news-items__item-img"
+            />
+          </div>
           <div class="index-news__items-item-box-1">
             <span class="index-news-items__item-date">04.01.2053</span>
             <div class="index-news-items__item-box-11">
@@ -369,11 +394,13 @@
           </div>
         </div>
         <div class="index-news-items__item">
-          <img
-            src="images/dist/image.jpg"
-            alt=""
-            class="index-news-items__item-img"
-          />
+          <div class="image-wrapper">
+            <img
+              src="images/dist/image.jpg"
+              alt=""
+              class="index-news-items__item-img"
+            />
+          </div>
           <div class="index-news__items-item-box-1">
             <span class="index-news-items__item-date">04.01.2053</span>
             <div class="index-news-items__item-box-11">
@@ -421,5 +448,25 @@
       </div>
     </section>
   </main>
+
+  <script>
+    const newsTexts = document.querySelectorAll(".news-text");
+
+    // Define the maximum character limit
+    let maxChars;
+
+    if (window.innerWidth <= 1280) {
+      maxChars = 75;
+    } else {
+      maxChars = 200;
+    }
+
+    newsTexts.forEach((newsText) => {
+      if (newsText.textContent.length > maxChars) {
+        const truncatedText = newsText.textContent.slice(0, maxChars) + "...";
+        newsText.textContent = truncatedText;
+      }
+    });
+  </script>
   <!--#include virtual="/parts/footer.html" -->
 </div>

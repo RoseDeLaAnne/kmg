@@ -104,3 +104,29 @@ p
 
 .rotate
   transform: rotate(-180deg)
+
+.image-wrapper
+  position: relative
+  padding-top: 100%
+  overflow: hidden
+
+  @media (min-width: 1281px)
+    padding-top: 0
+    overflow: auto
+
+    min-width: 224px !important
+    width: 224px !important
+    height: 224px !important
+
+.image-wrapper img
+  position: absolute
+  width: 100%
+  height: 100%
+  top: 0
+  left: 0
+  object-fit: cover
+
+  @media (min-width: 1281px)
+    position: relative
+    
+    width: 100% !important

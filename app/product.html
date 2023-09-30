@@ -23,16 +23,17 @@
       <div class="product-info__left">
         <div class="product-info__left-box-1">
           <div class="product-info-preview desktop">
-            <button>
+            <button onclick="previewScroll('top')">
               <svg
                 width="32"
                 height="32"
                 fill="none"
                 xmlns="http://www.w3.org/2000/svg"
+                id="product-info-preview_arrow-top"
+                style="fill: #B3C8DB;"
               >
                 <path
                   d="M9.88 20.547 16 14.44l6.12 6.107 1.88-1.88-8-8-8 8 1.88 1.88Z"
-                  fill="#B3C8DB"
                 />
               </svg>
             </button>
@@ -41,38 +42,56 @@
                 src="images/dist/image.jpg"
                 alt=""
                 class="product-info-preview__item-img"
+                onclick="showBigPreview('image')"
+              />
+              <img
+                src="images/dist/image-2.jpg"
+                alt=""
+                class="product-info-preview__item-img"
+                onclick="showBigPreview('image-2')"
+              />
+              <img
+                src="images/dist/image-3.jpg"
+                alt=""
+                class="product-info-preview__item-img"
+                onclick="showBigPreview('image-3')"
               />
               <img
                 src="images/dist/image.jpg"
                 alt=""
                 class="product-info-preview__item-img"
+                onclick="showBigPreview('image')"
               />
               <img
                 src="images/dist/image.jpg"
                 alt=""
                 class="product-info-preview__item-img"
+                onclick="showBigPreview('image')"
               />
               <img
-                src="images/dist/image.jpg"
+                src="images/dist/image-3.jpg"
                 alt=""
                 class="product-info-preview__item-img"
+                onclick="showBigPreview('image-3')"
               />
               <img
-                src="images/dist/image.jpg"
+                src="images/dist/image-3.jpg"
                 alt=""
                 class="product-info-preview__item-img"
+                onclick="showBigPreview('image-3')"
               />
             </div>
-            <button>
+            <button onclick="previewScroll('bottom')">
               <svg
                 width="32"
                 height="32"
                 fill="none"
                 xmlns="http://www.w3.org/2000/svg"
+                id="product-info-preview_arrow-bottom"
+                style="fill: #09295A"
               >
                 <path
                   d="M22.12 11.453 16 17.56l-6.12-6.107L8 13.333l8 8 8-8-1.88-1.88Z"
-                  fill="#09295A"
                 />
               </svg>
             </button>
@@ -185,6 +204,7 @@
                 >
                   Диаметр бурения, мм
                 </div>
+                <div class="product-info-characteristics-items__item-decor"></div>
                 <div
                   class="product-info-characteristics-items__item-content-value"
                 >
@@ -221,6 +241,7 @@
                 >
                   Модель
                 </div>
+                <div class="product-info-characteristics-items__item-decor"></div>
                 <div
                   class="product-info-characteristics-items__item-content-value"
                 >
@@ -424,6 +445,36 @@
   <!--#include virtual="/parts/footer.html" -->
 
   <script>
+    const previewBox = document.querySelector('.product-info-preview__box');
+    previewBox.addEventListener('scroll', () => {
+      if (previewBox.scrollTop >= 54) {
+        document.getElementById('product-info-preview_arrow-top').style.fill = "#09295A"
+        // document.getElementById('product-info-preview_arrow-bottom').style.fill = "#B3C8DB"
+      } else if (previewBox.scrollTop <= 54) {
+        document.getElementById('product-info-preview_arrow-top').style.fill = "#B3C8DB"        
+      }
+
+      if (previewBox.scrollTop === (previewBox.scrollHeight - previewBox.clientHeight)) {
+        document.getElementById('product-info-preview_arrow-bottom').style.fill = "#B3C8DB"
+      } else if (previewBox.scrollTop != (previewBox.scrollHeight - previewBox.clientHeight)) {
+        document.getElementById('product-info-preview_arrow-bottom').style.fill = "#09295A"
+      }
+    })
+
+    const previewScroll = (direction) => {
+      if (direction === 'top') {
+        previewBox.scrollTop -= 54
+      } else if (direction === 'bottom') {
+        previewBox.scrollTop += 54
+      }
+    }
+
+    const showBigPreview = (name) => {
+      const bigPreview = document.querySelector('.product-info-big-preview__item-img')
+
+      bigPreview.src = `images/dist/${name}.jpg`
+    }
+
     const showCharacteristics = (characteristics) => {
       document
         .getElementById(`${characteristics}`)

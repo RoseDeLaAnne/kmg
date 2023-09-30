@@ -31,24 +31,16 @@
             </a>
           </li>
           <li class="menu-content__ul-item">
-            <a href="#" class="menu-content__ul-item-link">
-              Запчасти
-            </a>
+            <a href="#" class="menu-content__ul-item-link"> Запчасти </a>
           </li>
           <li class="menu-content__ul-item">
-            <a href="#" class="menu-content__ul-item-link">
-              Сервис
-            </a>
+            <a href="#" class="menu-content__ul-item-link"> Сервис </a>
           </li>
           <li class="menu-content__ul-item">
-            <a href="#" class="menu-content__ul-item-link">
-              Новости
-            </a>
+            <a href="#" class="menu-content__ul-item-link"> Новости </a>
           </li>
           <li class="menu-content__ul-item">
-            <a href="#" class="menu-content__ul-item-link">
-              Контакты
-            </a>
+            <a href="#" class="menu-content__ul-item-link"> Контакты </a>
           </li>
         </ul>
         <button class="show-btn mobile show-btn__menu">
@@ -91,6 +83,8 @@
             fill="none"
             xmlns="http://www.w3.org/2000/svg"
             class="mobile"
+            style="cursor: pointer"
+            id="search-icon"
           >
             <path
               d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16a6.5 6.5 0 1 1 0-13Zm0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"
@@ -111,6 +105,25 @@
               />
             </svg>
           </button>
+          <form class="c-input-adaptive">
+            <input
+              type="text"
+              placeholder="Я ищу..."
+              id="im-searching-adaptive"
+            />
+            <svg
+              width="24"
+              height="24"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+              style="cursor: pointer"
+            >
+              <path
+                d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16a6.5 6.5 0 1 1 0-13Zm0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"
+                fill="#3F6298"
+              />
+            </svg>
+          </form>
         </div>
       </div>
       <div class="header__bottom">
@@ -136,10 +149,23 @@
             </ul>
           </nav>
           <div class="c-input c-input_header desktop">
-            <div class="pop-up pop-up_calculate-the-cost desktop" id="pop-up_calculate-the-cost-desktop">
+            <div
+              class="pop-up pop-up_calculate-the-cost desktop"
+              id="pop-up_calculate-the-cost-desktop"
+            >
               <h2 class="pop-up__title h2-title">
                 <span>Рассчитайте стоимость</span>
-                <svg viewBox="0 0 16 16" class="pop-up__icon" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="m3.333 4.273.94-.94 7.06 7.06V6h1.334v6.667H6v-1.334h4.393l-7.06-7.06Z" fill="#09295A"/></svg>
+                <svg
+                  viewBox="0 0 16 16"
+                  class="pop-up__icon"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="m3.333 4.273.94-.94 7.06 7.06V6h1.334v6.667H6v-1.334h4.393l-7.06-7.06Z"
+                    fill="#09295A"
+                  />
+                </svg>
               </h2>
               <form class="filter">
                 <div class="filter__inner">
@@ -150,38 +176,36 @@
                         <input
                           id="fromSliderDrillingdiameter"
                           type="range"
-                          value="0"
+                          value="500"
                           min="0"
-                          max="1000"
+                          max="5000"
                         />
                         <input
                           id="toSliderDrillingdiameter"
                           type="range"
-                          value="1000"
+                          value="5000"
                           min="0"
-                          max="1000"
+                          max="5000"
                         />
                       </div>
                       <div class="filter__item-box">
                         <input
-                          placeholder="0"
                           class="filter__item-input form_control_container__time__input"
                           type="number"
-                          id="fromSliderDrillingdiameter"
-                          value="0"
+                          id="fromInputDrillingdiameter"
+                          value="500"
                           min="0"
-                          max="1000"
-                          style="background-color: #F3F8FF"
+                          max="5000"
+                          style="background-color: #f3f8ff"
                         />
                         <input
-                          placeholder="1000"
                           class="filter__item-input form_control_container__time__input"
                           type="number"
-                          id="toSliderDrillingdiameter"
-                          value="1000"
+                          id="toInputDrillingdiameter"
+                          value="5000"
                           min="0"
-                          max="1000"
-                          style="background-color: #F3F8FF;"
+                          max="5000"
+                          style="background-color: #f3f8ff"
                         />
                       </div>
                     </div>
@@ -189,18 +213,18 @@
                       <div class="filter__item-title">Диаметр, мм</div>
                       <div class="sliders_control">
                         <input
-                          id="fromSliderDrillingdiameter"
+                          id="fromSliderDiameter"
                           type="range"
-                          value="0"
+                          value="500"
                           min="0"
-                          max="1000"
+                          max="5000"
                         />
                         <input
-                          id="toSliderDrillingdiameter"
+                          id="toSliderDiameter"
                           type="range"
-                          value="1000"
+                          value="5000"
                           min="0"
-                          max="1000"
+                          max="5000"
                         />
                       </div>
                       <div class="filter__item-box">
@@ -208,21 +232,21 @@
                           placeholder="0"
                           class="filter__item-input form_control_container__time__input"
                           type="number"
-                          id="fromSliderDrillingdiameter"
-                          value="0"
+                          id="fromInputDiameter"
+                          value="500"
                           min="0"
-                          max="1000"
-                          style="background-color: #F3F8FF"
+                          max="5000"
+                          style="background-color: #f3f8ff"
                         />
                         <input
                           placeholder="1000"
                           class="filter__item-input form_control_container__time__input"
                           type="number"
-                          id="toSliderDrillingdiameter"
-                          value="1000"
+                          id="toInputDiameter"
+                          value="5000"
                           min="0"
-                          max="1000"
-                          style="background-color: #F3F8FF;"
+                          max="5000"
+                          style="background-color: #f3f8ff"
                         />
                       </div>
                     </div>
@@ -230,18 +254,18 @@
                       <div class="filter__item-title">Мощность, Вт</div>
                       <div class="sliders_control">
                         <input
-                          id="fromSliderDrillingdiameter"
+                          id="fromSliderPower"
                           type="range"
-                          value="0"
+                          value="500"
                           min="0"
-                          max="1000"
+                          max="5000"
                         />
                         <input
-                          id="toSliderDrillingdiameter"
+                          id="toSliderPower"
                           type="range"
-                          value="1000"
+                          value="5000"
                           min="0"
-                          max="1000"
+                          max="5000"
                         />
                       </div>
                       <div class="filter__item-box">
@@ -249,21 +273,21 @@
                           placeholder="0"
                           class="filter__item-input form_control_container__time__input"
                           type="number"
-                          id="fromSliderDrillingdiameter"
-                          value="0"
+                          id="fromInputPower"
+                          value="500"
                           min="0"
-                          max="1000"
-                          style="background-color: #F3F8FF"
+                          max="5000"
+                          style="background-color: #f3f8ff"
                         />
                         <input
                           placeholder="1000"
                           class="filter__item-input form_control_container__time__input"
                           type="number"
-                          id="toSliderDrillingdiameter"
-                          value="1000"
+                          id="toInputPower"
+                          value="5000"
                           min="0"
-                          max="1000"
-                          style="background-color: #F3F8FF;"
+                          max="5000"
+                          style="background-color: #f3f8ff"
                         />
                       </div>
                     </div>
@@ -274,7 +298,12 @@
                 </div>
               </form>
             </div>
-            <input type="text" placeholder="Я ищу..." class="c-input__input" id="im-searching" />
+            <input
+              type="text"
+              placeholder="Я ищу..."
+              class="c-input__input"
+              id="im-searching"
+            />
             <svg
               width="24"
               height="24"
@@ -330,16 +359,17 @@
       <div class="product-info__left">
         <div class="product-info__left-box-1">
           <div class="product-info-preview desktop">
-            <button>
+            <button onclick="previewScroll('top')">
               <svg
                 width="32"
                 height="32"
                 fill="none"
                 xmlns="http://www.w3.org/2000/svg"
+                id="product-info-preview_arrow-top"
+                style="fill: #B3C8DB;"
               >
                 <path
                   d="M9.88 20.547 16 14.44l6.12 6.107 1.88-1.88-8-8-8 8 1.88 1.88Z"
-                  fill="#B3C8DB"
                 />
               </svg>
             </button>
@@ -348,38 +378,56 @@
                 src="images/dist/image.jpg"
                 alt=""
                 class="product-info-preview__item-img"
+                onclick="showBigPreview('image')"
+              />
+              <img
+                src="images/dist/image-2.jpg"
+                alt=""
+                class="product-info-preview__item-img"
+                onclick="showBigPreview('image-2')"
+              />
+              <img
+                src="images/dist/image-3.jpg"
+                alt=""
+                class="product-info-preview__item-img"
+                onclick="showBigPreview('image-3')"
               />
               <img
                 src="images/dist/image.jpg"
                 alt=""
                 class="product-info-preview__item-img"
+                onclick="showBigPreview('image')"
               />
               <img
                 src="images/dist/image.jpg"
                 alt=""
                 class="product-info-preview__item-img"
+                onclick="showBigPreview('image')"
               />
               <img
-                src="images/dist/image.jpg"
+                src="images/dist/image-3.jpg"
                 alt=""
                 class="product-info-preview__item-img"
+                onclick="showBigPreview('image-3')"
               />
               <img
-                src="images/dist/image.jpg"
+                src="images/dist/image-3.jpg"
                 alt=""
                 class="product-info-preview__item-img"
+                onclick="showBigPreview('image-3')"
               />
             </div>
-            <button>
+            <button onclick="previewScroll('bottom')">
               <svg
                 width="32"
                 height="32"
                 fill="none"
                 xmlns="http://www.w3.org/2000/svg"
+                id="product-info-preview_arrow-bottom"
+                style="fill: #09295A"
               >
                 <path
                   d="M22.12 11.453 16 17.56l-6.12-6.107L8 13.333l8 8 8-8-1.88-1.88Z"
-                  fill="#09295A"
                 />
               </svg>
             </button>
@@ -492,6 +540,7 @@
                 >
                   Диаметр бурения, мм
                 </div>
+                <div class="product-info-characteristics-items__item-decor"></div>
                 <div
                   class="product-info-characteristics-items__item-content-value"
                 >
@@ -528,6 +577,7 @@
                 >
                   Модель
                 </div>
+                <div class="product-info-characteristics-items__item-decor"></div>
                 <div
                   class="product-info-characteristics-items__item-content-value"
                 >
@@ -741,11 +791,11 @@
 			<nav class="nav nav_footer">
 				<h3 class="nav__title">Полезное</h3>
 				<ul class="nav__ul">
-					<li class="nav__ul-item">Каталог</li>
-					<li class="nav__ul-item">Запчасти</li>
-					<li class="nav__ul-item">Сервис</li>
-					<li class="nav__ul-item">Новости</li>
-					<li class="nav__ul-item">Контакты</li>
+					<li class="nav__ul-item"><a href="#">Каталог</a></li>
+					<li class="nav__ul-item"><a href="#">Запчасти</a></li>
+					<li class="nav__ul-item"><a href="#">Сервис</a></li>
+					<li class="nav__ul-item"><a href="#">Новости</a></li>
+					<li class="nav__ul-item"><a href="#">Контакты</a></li>
 				</ul>
 			</nav>
 			<div class="contacts contacts_footer">
@@ -837,6 +887,36 @@
 </html>
 
   <script>
+    const previewBox = document.querySelector('.product-info-preview__box');
+    previewBox.addEventListener('scroll', () => {
+      if (previewBox.scrollTop >= 54) {
+        document.getElementById('product-info-preview_arrow-top').style.fill = "#09295A"
+        // document.getElementById('product-info-preview_arrow-bottom').style.fill = "#B3C8DB"
+      } else if (previewBox.scrollTop <= 54) {
+        document.getElementById('product-info-preview_arrow-top').style.fill = "#B3C8DB"        
+      }
+
+      if (previewBox.scrollTop === (previewBox.scrollHeight - previewBox.clientHeight)) {
+        document.getElementById('product-info-preview_arrow-bottom').style.fill = "#B3C8DB"
+      } else if (previewBox.scrollTop != (previewBox.scrollHeight - previewBox.clientHeight)) {
+        document.getElementById('product-info-preview_arrow-bottom').style.fill = "#09295A"
+      }
+    })
+
+    const previewScroll = (direction) => {
+      if (direction === 'top') {
+        previewBox.scrollTop -= 54
+      } else if (direction === 'bottom') {
+        previewBox.scrollTop += 54
+      }
+    }
+
+    const showBigPreview = (name) => {
+      const bigPreview = document.querySelector('.product-info-big-preview__item-img')
+
+      bigPreview.src = `images/dist/${name}.jpg`
+    }
+
     const showCharacteristics = (characteristics) => {
       document
         .getElementById(`${characteristics}`)
