@@ -5,7 +5,7 @@
     padding: 0
   
 .index-partners-items
-  padding-left: 20px
+  padding-left: 20px  
 
   display: flex
   column-gap: 10px
@@ -19,6 +19,32 @@
     grid-template-columns: repeat(7, 1fr)
 
     overflow-x: auto
+
+.index-partners-items__item
+  position: relative
+
+  cursor: pointer
+
+  &::before
+    content: ''
+
+    position: absolute
+
+    top: 0px
+    left: 0px
+    right: 0px
+    bottom: 0px
+
+    background-color: rgba(#000, 0)
+
+    border-radius: 12px
+
+    transition: background-color .5s ease-in-out
+
+  &:hover
+    &::before
+
+      background-color: rgba(#000, .15)
 
 .index-partners-items__item-img
   width: 100px

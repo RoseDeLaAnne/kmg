@@ -40,9 +40,25 @@ document.addEventListener("DOMContentLoaded", () => {
   // Function to handle clicks outside the trigger button
   function handleClickOutside(event) {
       if (!imSearchingInput.contains(event.target) && !popUpHeaderCalc.contains(event.target)) {
-
           popUpHeaderCalc.classList.remove('block')
       }
+
+      if (!modalThanks.contains(event.target)) {
+        modalThanks.classList.remove("show");
+        document.querySelector(".modal-background").classList.remove("show");
+        document.body.style.overflow = "auto";
+      }
+
+      // if (!document.querySelector('.modal_leave-a-request').contains(event.target) && document.querySelector('.modal_leave-a-request').classList.contains('hidden')) {
+      //   console.log('trigger')
+      //   document.querySelector('.modal_leave-a-request').classList.remove("block");
+      //   document.querySelector(".modal-background-2").classList.remove("show");
+      //   document.body.style.overflow = "auto";
+      // }
+
+      // if (document.querySelector('.modal_leave-a-request').classList.contains('block')) {
+      //   console.log('hello')
+      // }
   }
 
   imSearchingInput.addEventListener('focus', function () {

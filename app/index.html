@@ -168,10 +168,10 @@
             viewBox="0 0 16 16"
             fill="none"
             xmlns="http://www.w3.org/2000/svg"
+            class="show-btn__icon"
           >
             <path
               d="M3.3335 4.27333L4.2735 3.33333L11.3335 10.3933V6H12.6668V12.6667H6.00016V11.3333H10.3935L3.3335 4.27333Z"
-              fill="#6D98BA"
             />
           </svg>
         </a>
@@ -235,10 +235,10 @@
           viewBox="0 0 16 16"
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
+          class="show-btn__icon"
         >
           <path
             d="M3.3335 4.27333L4.2735 3.33333L11.3335 10.3933V6H12.6668V12.6667H6.00016V11.3333H10.3935L3.3335 4.27333Z"
-            fill="#6D98BA"
           />
         </svg>
       </a>
@@ -258,15 +258,15 @@
         <div class="container">
           <ul class="index-about-company__ul">
             <li class="index-about-company__ul-item">
-              <h1 class="index-about-company__ul-item-title">10+</h1>
+              <h1 class="index-about-company__ul-item-title"><span class="num-1" data-val="10">10</span>+</h1>
               <p class="index-about-company__ul-item-desc">лет опыта</p>
             </li>
             <li class="index-about-company__ul-item">
-              <h1 class="index-about-company__ul-item-title">1 000</h1>
+              <h1 class="index-about-company__ul-item-title num-2" data-val="1000">1 000</h1>
               <p class="index-about-company__ul-item-desc">клиентов</p>
             </li>
             <li class="index-about-company__ul-item">
-              <h1 class="index-about-company__ul-item-title">10 000</h1>
+              <h1 class="index-about-company__ul-item-title num-3" data-val="10000">10 000</h1>
               <p class="index-about-company__ul-item-desc">проектов</p>
             </li>
           </ul>
@@ -374,10 +374,10 @@
             viewBox="0 0 16 16"
             fill="none"
             xmlns="http://www.w3.org/2000/svg"
+            class="show-btn__icon"
           >
             <path
               d="M3.3335 4.27333L4.2735 3.33333L11.3335 10.3933V6H12.6668V12.6667H6.00016V11.3333H10.3935L3.3335 4.27333Z"
-              fill="#6D98BA"
             />
           </svg>
         </a>
@@ -446,7 +446,7 @@
         </h2>
         <div class="index-interested-in-our-products__box">
           <button class="btn btn_submit">Оставить заявку</button>
-          <button class="show-btn show-btn__index-interested-in-our-products">
+          <button class="show-btn show-btn__index-interested-in-our-products show-btn_white">
             <span class="show-btn__name">К контактам</span>
             <svg
               width="16"
@@ -454,10 +454,10 @@
               viewBox="0 0 16 16"
               fill="none"
               xmlns="http://www.w3.org/2000/svg"
+              class="show-btn__icon"
             >
               <path
                 d="M3.3335 4.27333L4.2735 3.33333L11.3335 10.3933V6H12.6668V12.6667H6.00016V11.3333H10.3935L3.3335 4.27333Z"
-                fill="#FFFFFF"
               />
             </svg>
           </button>
@@ -467,6 +467,56 @@
   </main>
 
   <script>
+    let valueDisplays1 = document.querySelectorAll(".num-1");
+    let valueDisplays2 = document.querySelectorAll(".num-2");
+    let valueDisplays3 = document.querySelectorAll(".num-3");
+    // let interval = 1000;
+
+    valueDisplays1.forEach((valueDisplay) => {
+      let startValue = 0;
+      let endValue = parseInt(valueDisplay.getAttribute("data-val"));
+      let duration = Math.floor(100 / endValue);
+      let counter = setInterval(function () {
+        startValue += 1;
+        valueDisplay.textContent = startValue;
+        if (startValue == endValue) {
+          clearInterval(counter);
+        }
+      }, 100);
+    });
+    valueDisplays2.forEach((valueDisplay) => {
+      let startValue = 700;
+      let endValueStr = valueDisplay.getAttribute("data-val"); // Get the formatted number as a string
+      let endValue = parseInt(endValueStr.replace(/\s/g, "")); // Remove spaces and parse as an integer
+      let duration = Math.floor(5 / endValue);
+      let counter = setInterval(function () {
+        startValue += 1;
+        let formattedValue = formatNumberWithSpaces(startValue); // Format the updated value
+        valueDisplay.textContent = formattedValue;
+        if (startValue == endValue) {
+          clearInterval(counter);
+        }
+      }, duration);
+    });
+    valueDisplays3.forEach((valueDisplay) => {
+      let startValue = 9500;
+      let endValueStr = valueDisplay.getAttribute("data-val"); // Get the formatted number as a string
+      let endValue = parseInt(endValueStr.replace(/\s/g, "")); // Remove spaces and parse as an integer
+      let duration = Math.floor(1 / endValue);
+      let counter = setInterval(function () {
+        startValue += 1;
+        let formattedValue = formatNumberWithSpaces(startValue); // Format the updated value
+        valueDisplay.textContent = formattedValue;
+        if (startValue == endValue) {
+          clearInterval(counter);
+        }
+      }, duration);
+    });
+
+    function formatNumberWithSpaces(number) {
+      return number.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ");
+    }
+
     const newsTexts = document.querySelectorAll(".news-text");
 
     // Define the maximum character limit

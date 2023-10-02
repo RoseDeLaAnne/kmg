@@ -34,9 +34,34 @@
   display: flex
   align-items: center
 
+  &.show-btn_white
+    .show-btn__icon
+      fill: #fff
+
+    &:hover
+      .show-btn__name
+        color: #BEBEBE !important
+
+      .show-btn__icon
+        fill: #BEBEBE !important
+
+  .show-btn__icon,
+  .show-btn__icon-2
+    fill: #6D98BA
+
+    transition: fill .5s ease-in-out, transform .5s ease-in-out
+
   &:hover
     .show-btn__name
       color: #09295A
+
+    .show-btn__icon
+      fill: #09295A
+
+      transform: rotate(45deg)
+
+    .show-btn__icon-2
+      fill: #09295A
 
   &.disabled
     .show-btn__name

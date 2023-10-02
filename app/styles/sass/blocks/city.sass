@@ -1,6 +1,15 @@
 .city
   display: flex
 
+  cursor: pointer
+
+  &:hover
+    .city__name
+      color: #09295A
+
+    .city__icon
+      fill: #09295A
+
 .city__name
   font-size: 16px
   font-weight: 500
@@ -9,9 +18,15 @@
 
   color: #6D98BA
 
+  transition: color .5s ease-in-out
+
   // @media (min-width: 1281px)
   //   color: #000000
 
 .city__icon
-  width: 20px
-  height: 20px
+  // width: 20px
+  // height: 20px
+
+  fill: #6D98BA
+
+  transition: fill .5s ease-in-out

@@ -1,16 +1,27 @@
 .logo
-  height: 36px
+  &:hover
+    .logo__icon-path-1,
+    .logo__icon-path-2
+      fill: #000
 
   &.logo_header
-    height: 36px
+    .logo__icon
+      height: 36px
 
-    @media (min-width: 1281px)
-      height: 60px
+      @media (min-width: 1281px)
+        height: 60px
 
   &.logo_footer
     margin-bottom: 24px
 
-    height: 32px
+    .logo__icon
+      height: 32px
 
-    @media (min-width: 1281px)
-      height: 60px
+      @media (min-width: 1281px)
+        height: 60px
+
+.logo__icon-path-1,
+.logo__icon-path-2
+  fill: #09295A
+
+  transition: fill .25s ease-in-out
