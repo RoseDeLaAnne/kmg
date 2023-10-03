@@ -4,14 +4,35 @@
   <!--#include virtual="/parts/header.html" -->
   <main id="main" class="main">
     <section class="splash">
-      <p class="splash__title">
-        Буровые установки<br />
-        и оборудование
-      </p>
-      <div class="splash__overlay"></div>
-      <img src="/images/dist/splash.jpg" alt="" class="splash__img" />
+      <div class="slider">
+        <div class="slide">
+          <img src="/images/dist/splash.jpg" alt="" class="splash__img" />
+          <div class="splash__overlay"></div>
+          <p class="splash__title">
+            Буровые установки<br />
+            и оборудование
+          </p>
+        </div>
+        <div class="slide">
+          <img src="/images/dist/splash-2.jpg" alt="" class="splash__img" />
+          <div class="splash__overlay"></div>
+          <p class="splash__title">
+            Поставка расходных материалов<br class="desktop" /> и частей для обслуживания<br class="desktop" /> оригинального оборудования
+          </p>
+        </div>
+        <div class="slide">
+          <img src="/images/dist/splash-3.jpg" alt="" class="splash__img" />
+          <div class="splash__overlay"></div>
+          <p class="splash__title">
+            Обучение персонала Заказчика<br class="desktop" /> для повышения эффективности<br class="desktop" /> работы техники
+          </p>
+        </div>
+        <!-- Add more slides as needed -->
+      </div>
+      <!-- <button class="prev-button">Previous</button>
+      <button class="next-button">Next</button> -->
     </section>
-    <div class="pop-up-container section-2">
+    <div class="pop-up-container section-3">
       <div class="pop-up pop-up_calculate-the-cost mobile pop-up_mobile">
         <h2 class="pop-up__title h2-title">
           <span>Рассчитайте стоимость</span>
@@ -258,15 +279,27 @@
         <div class="container">
           <ul class="index-about-company__ul">
             <li class="index-about-company__ul-item">
-              <h1 class="index-about-company__ul-item-title"><span class="num-1" data-val="10">10</span>+</h1>
+              <h1 class="index-about-company__ul-item-title">
+                <span class="num-1" data-val="10">10</span>+
+              </h1>
               <p class="index-about-company__ul-item-desc">лет опыта</p>
             </li>
             <li class="index-about-company__ul-item">
-              <h1 class="index-about-company__ul-item-title num-2" data-val="1000">1 000</h1>
+              <h1
+                class="index-about-company__ul-item-title num-2"
+                data-val="1000"
+              >
+                1 000
+              </h1>
               <p class="index-about-company__ul-item-desc">клиентов</p>
             </li>
             <li class="index-about-company__ul-item">
-              <h1 class="index-about-company__ul-item-title num-3" data-val="10000">10 000</h1>
+              <h1
+                class="index-about-company__ul-item-title num-3"
+                data-val="10000"
+              >
+                10 000
+              </h1>
               <p class="index-about-company__ul-item-desc">проектов</p>
             </li>
           </ul>
@@ -446,7 +479,9 @@
         </h2>
         <div class="index-interested-in-our-products__box">
           <button class="btn btn_submit">Оставить заявку</button>
-          <button class="show-btn show-btn__index-interested-in-our-products show-btn_white">
+          <button
+            class="show-btn show-btn__index-interested-in-our-products show-btn_white"
+          >
             <span class="show-btn__name">К контактам</span>
             <svg
               width="16"
@@ -465,6 +500,8 @@
       </div>
     </section>
   </main>
+
+  <script src="js/slider.js"></script>
 
   <script>
     let valueDisplays1 = document.querySelectorAll(".num-1");

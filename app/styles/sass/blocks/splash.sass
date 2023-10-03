@@ -1,41 +1,44 @@
 .splash
   position: relative
+  overflow: hidden
 
-.splash__img
-  width: 100%
-  min-height: 360px
+  &__img
+    width: 100%
+    min-height: 360px
+    max-height: 752px
+
+.slider
+  display: flex
+  transition: transform 0.5s ease-in-out
+
+.slide
+  flex: 0 0 100%
+  position: relative
 
 .splash__overlay
   position: absolute
-
   top: 0
   left: 0
   right: 0
   bottom: 0
-
-  background-color: rgba(#000, .4)
-
+  background-color: rgba(0, 0, 0, 0.4)
   z-index: 50
 
 .splash__title
   position: absolute
-
   bottom: 40px
   left: 20px
-
   font-family: manrope
   letter-spacing: -0.02em
   font-size: 32px
   font-weight: 700
   line-height: 35px
-
   color: #ffffff
-
   z-index: 60
 
-  @media (min-width: 1281px)
+@media (min-width: 1281px)
+  .splash__title
     left: calc((100vw - 1280px) / 2)
-
     font-size: 72px
     font-weight: 800
     line-height: 72px
