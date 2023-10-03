@@ -594,14 +594,18 @@
           <img src="/images/dist/splash-2.jpg" alt="" class="splash__img" />
           <div class="splash__overlay"></div>
           <p class="splash__title">
-            Поставка расходных материалов<br class="desktop" /> и частей для обслуживания<br class="desktop" /> оригинального оборудования
+            Поставка расходных материалов<br class="desktop" />
+            и частей для обслуживания<br class="desktop" />
+            оригинального оборудования
           </p>
         </div>
         <div class="slide">
           <img src="/images/dist/splash-3.jpg" alt="" class="splash__img" />
           <div class="splash__overlay"></div>
           <p class="splash__title">
-            Обучение персонала Заказчика<br class="desktop" /> для повышения эффективности<br class="desktop" /> работы техники
+            Обучение персонала Заказчика<br class="desktop" />
+            для повышения эффективности<br class="desktop" />
+            работы техники
           </p>
         </div>
         <!-- Add more slides as needed -->
@@ -1078,7 +1082,34 @@
     </section>
   </main>
 
-  <script type="text/javascript" src="/js/slider.js"></script>
+  <script>
+    const slider = document.querySelector(".slider");
+    const slides = document.querySelectorAll(".slide");
+    // const prevButton = document.querySelector(".prev-button");
+    // const nextButton = document.querySelector(".next-button");
+    let currentIndex = 0;
+
+    function nextSlide() {
+      currentIndex = (currentIndex + 1) % slides.length;
+      updateSlider();
+    }
+
+    function prevSlide() {
+      currentIndex = (currentIndex - 1 + slides.length) % slides.length;
+      updateSlider();
+    }
+
+    function updateSlider() {
+      const translateX = -currentIndex * 100;
+      slider.style.transform = `translateX(${translateX}%)`;
+    }
+
+    // nextButton.addEventListener("click", nextSlide);
+    // prevButton.addEventListener("click", prevSlide);
+
+    // Automatically slide every 5 seconds
+    setInterval(nextSlide, 5000);
+  </script>
 
   <script>
     let valueDisplays1 = document.querySelectorAll(".num-1");
