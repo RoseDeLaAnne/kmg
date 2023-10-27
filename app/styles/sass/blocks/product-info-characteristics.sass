@@ -9,10 +9,20 @@
   @media (min-width: 1281px)
     width: 488px
 
-.product-info-characteristics-items__item-content
+.product-info-characteristics-items__item-contents
   margin-top: 16px
 
   display: none
+  flex-direction: column
+  row-gap: 8px
+  // justify-content: space-between
+
+  @media (min-width: 1281px)
+    row-gap: 10px
+
+.product-info-characteristics-items__item-content
+  width: 100%
+  display: flex
   // justify-content: space-between
 
 .product-info-characteristics-items__item-decor
